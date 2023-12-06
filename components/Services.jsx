@@ -2,6 +2,7 @@ import react from "react";
 import styled from "styled-components";
 import Card from "./Card";
 import MainTitle from "./Layout/Title";
+import colors from "@/assets/colors";
 
 const services = [
     {
@@ -21,19 +22,33 @@ const services = [
     },
 ]
 
-const Container = styled.section``
+const Container = styled.section`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: ${colors.secondary};
+`
+
+const CardsWrapper = styled.div`
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    text-align: center;
+`
 
 const Services = () => {
     return (
         <Container>
-            <MainTitle title="toto" />
-            {services.map((service) => {
-                <Card 
-                    key={service.id}
-                    title={service.title}
-                    description={service.description}
-                />
-            })}
+            <MainTitle title="Services" />
+            <CardsWrapper>
+                {services.map((service) => (
+                    <Card 
+                        key={service.id}
+                        title={service.title}
+                        description={service.description}
+                    />
+                ))}
+            </CardsWrapper>
         </Container>
     )
 }
