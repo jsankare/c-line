@@ -1,9 +1,9 @@
 import react from "react";
 import styled from "styled-components";
 
-const Title = styled.h1``
+const Title = styled.h2``
 
-const MainTitle = ({ title }) => {
+const SubTitle = ({ title }) => {
     return (
         <>
             <Title>{title}</Title>
@@ -11,4 +11,4 @@ const MainTitle = ({ title }) => {
     )
 }
 
-export default MainTitle;
+export default SubTitle;

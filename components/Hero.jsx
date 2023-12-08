@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 const Container = styled.section`
     min-height: 10vh;
+    width: 100%;
     background: linear-gradient(180deg, rgb(255, 148, 148), rgb(255, 209, 209));
     display: flex;
     justify-content: center;

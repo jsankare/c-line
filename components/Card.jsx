@@ -1,6 +1,7 @@
 import react from "react";
 import styled from "styled-components";
 import colors from "@/assets/colors";
+import Link from "next/link";
 
 const Container = styled.section`
     position: relative;
@@ -27,12 +28,18 @@ const Wrapper = styled.div`
 
 `
 
-const Card = ( {title, description, id} ) => {
+const CardLink = styled(Link)`
+    text-decoration: none;
+    color: ${colors.fourth};
+`
+
+const Card = ( {title, description, link} ) => {
     return (
         <Container>
             <Wrapper>
                 <h2>{title}</h2>
                 <p>{description}</p>
+                <CardLink href={link} >{title}</CardLink>
             </Wrapper>
         </Container>
     )

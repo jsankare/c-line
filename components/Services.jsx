@@ -1,24 +1,48 @@
 import react from "react";
 import styled from "styled-components";
-import Card from "./Card";
 import MainTitle from "./Layout/Title";
 import colors from "@/assets/colors";
+import Service from "./Service";
 
 const services = [
     {
+        id: "SERV1",
         title: "Couture",
-        description: "lorem ipsum couture",
-        id: "SERV1"
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.",
+        link: "/",
+        picture: "/next.svg",
+        reversedLayout : false,
+        arguments: [
+            "Bon matériaux",
+            "Argument 2",
+            "Argument 3",
+        ],
     },
     {
+        id: "SERV2",
         title: "Flocage",
-        description: "lorem ipsum flocage",
-        id: "SERV2"
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.",
+        link: "/",
+        picture: "/next.svg",
+        reversedLayout : true,
+        arguments: [
+            "Bon matériaux",
+            "Argument 2",
+            "Argument 3",
+        ],
     },
     {
+        id: "SERV3",
         title: "Évènements saisonniers",
-        description: "lorem ipsum saison",
-        id: "SERV3"
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.",
+        link: "/",
+        picture: "/next.svg",
+        reversedLayout : false,
+        arguments: [
+            "Bon matériaux",
+            "Argument 2",
+            "Argument 3",
+        ],
     },
 ]
 
@@ -27,28 +51,33 @@ const Container = styled.section`
     flex-direction: column;
     align-items: center;
     background-color: ${colors.secondary};
+    box-shadow: 0 0 0 100vmax ${colors.secondary};
+    clip-path: inset(0 -100vmax);
+    width: 100%;
 `
 
-const CardsWrapper = styled.div`
+const ServicesWrapper = styled.div`
     display: flex;
-    justify-content: center;
-    gap: 100px;
-    text-align: center;
+    flex-direction: column;
+    gap: 50px;
 `
 
 const Services = () => {
     return (
         <Container>
             <MainTitle title="Services" />
-            <CardsWrapper>
+            <ServicesWrapper>
                 {services.map((service) => (
-                    <Card 
+                    <Service 
                         key={service.id}
                         title={service.title}
                         description={service.description}
+                        picture={service.picture}
+                        reversedLayout={service.reversedLayout}
+                        arguments={service.arguments}
                     />
                 ))}
-            </CardsWrapper>
+            </ServicesWrapper>
         </Container>
     )
 }

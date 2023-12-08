@@ -1,7 +1,23 @@
 import Head from 'next/head'
+import react from 'react'
+import styled from 'styled-components'
+import colors from '@/assets/colors'
 // import MagicMouse from '@/components/MagicMouse'
 import Hero from '@/components/Hero'
 import Services from '@/components/Services'
+import Testimonial from '@/components/Testimonial'
+
+const Container = styled.section`
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	max-width: 1200px;
+	margin: 0 auto;
+	background-color: ${colors.secondary};
+    box-shadow: 0 0 0 100vmax ${colors.secondary};
+    clip-path: inset(0 -100vmax);
+`
 
 export default function Home() {
   	return (
@@ -12,8 +28,11 @@ export default function Home() {
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
-			<Hero />
-			<Services />
+				<Hero />
+			<Container>
+				<Services />
+				<Testimonial />
+			</Container>
 		</>
 	)
 }
