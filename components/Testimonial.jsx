@@ -29,18 +29,21 @@ const Container = styled.section`
     background-color: ${colors.secondary};
     display: flex;
     flex-direction: column;
+    gap: 50px;
     align-items: center;
     width: 100%;
 `
 
 const TestimonialWrapper = styled.div`
     display: flex;
+    justify-content: center;
+    gap: 50px;
 `
 
 const Testimonial = () => {
     return (
         <Container>
-            <MainTitle title="Les avis" />
+            <MainTitle title="Les avis" size="big" weight="bold" />
             <TestimonialWrapper>
             {Reviews.map((review) => (
                 <Review
@@ -53,7 +56,7 @@ const Testimonial = () => {
             ))}
             </TestimonialWrapper>
         </Container>
-    )
-}
+    );
+};
 
 export default Testimonial;

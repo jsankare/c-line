@@ -10,7 +10,7 @@ const services = [
         title: "Couture",
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.",
         link: "/",
-        picture: "/next.svg",
+        picture: "/sewing.jpg",
         reversedLayout : false,
         arguments: [
             "Bon matériaux",
@@ -65,7 +65,7 @@ const ServicesWrapper = styled.div`
 const Services = () => {
     return (
         <Container>
-            <MainTitle title="Services" />
+            <MainTitle title="Services" size="big" weight="bold" />
             <ServicesWrapper>
                 {services.map((service) => (
                     <Service 

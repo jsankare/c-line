@@ -10,6 +10,7 @@ import Testimonial from '@/components/Testimonial'
 const Container = styled.section`
 	display: flex;
 	flex-direction: column;
+	gap: 100px;
 	align-items: center;
 	width: 100%;
 	max-width: 1200px;
