@@ -2,30 +2,44 @@ import react from "react";
 import styled from "styled-components";
 import colors from "@/assets/colors";
 import Link from "next/link";
+import Paragraph from "./Layout/Paragraph";
 
 const Container = styled.section`
     position: relative;
-    background-color: ${colors.primary};
+    background-color: #0F0F0F;
     border: 1px solid rgb(255 255 255 / 5%);
-    border-radius: 1.5rem;
     width: 100%;
+    max-width: 250px;
+    height: 300px;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
     background-image: radial-gradient(
-        ${colors.thirdary} 1px, 
+        rgba(255, 148, 148, 0.2) 1px, 
         transparent 1px
     );
     background-position: 50% 50%;
     background-size: 1.1rem 1.1rem;
-    padding: 4rem;
-    border-radius: 1.25rem;
-    overflow: hidden;
-`
-
-const Wrapper = styled.div`
-
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    padding: 50px;
+    border-radius: 30px;
+    &::before {
+        content: "";
+        height: 75px;
+        width: 2px;
+        background: linear-gradient(
+            transparent,
+            #2F4858,
+            transparent
+        );
+        position: absolute;
+        left: -2px;
+        top: 65%;
+        opacity: 0;
+        transition: top 0.6s ease, opacity 0.6s ease;
+    }
+    &:hover::before {
+    top: 25%;
+    opacity: 1;
+    }
 `
 
 const CardLink = styled(Link)`
@@ -36,11 +50,9 @@ const CardLink = styled(Link)`
 const Card = ( {title, description, link} ) => {
     return (
         <Container>
-            <Wrapper>
-                <h2>{title}</h2>
-                <p>{description}</p>
-                <CardLink href={link} >{title}</CardLink>
-            </Wrapper>
+            <h3>{title}</h3>
+            <Paragraph text={description} />
+            <CardLink href={link} >{title}</CardLink>
         </Container>
     )
 }

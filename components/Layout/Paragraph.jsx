@@ -1,5 +1,6 @@
-import react from "react";
-import styled from "styled-components";
+import React from "react";
+import styled, { css } from "styled-components";
+import colors from "@/assets/colors";
 
 const Text = styled.p`
     font-size: ${(props) => {
@@ -26,14 +27,23 @@ const Text = styled.p`
                 return "normal"
         }
     }};
-`
 
-const Paragraph = ({ text, size, weight }) => {
+    ${(props) =>
+        props.neon &&
+        css`
+            text-shadow: 0 0 10px ${colors.primary};
+            color: black;
+        `};
+`;
+
+const Paragraph = ({ text, size, weight, neon }) => {
     return (
         <>
-            <Text size={size} weight={weight} >{text}</Text>
+            <Text size={size} weight={weight} neon={neon}>
+                {text}
+            </Text>
         </>
-    )
-}
+    );
+};
 
 export default Paragraph;

@@ -5,12 +5,12 @@ import Link from "next/link";
 
 const Container = styled.section`
     background-color: ${colors.primary};
+    padding: 20px;
 `
 
 const NavWrapper = styled.div`
     display: flex;
     justify-content: space-between;
-    text-align: center;
     align-items: center;
     padding: 0px 25px;
 `
@@ -18,6 +18,13 @@ const NavWrapper = styled.div`
 const StyledLink = styled(Link)`
     text-decoration: none;
     color: ${colors.fourth};
+    font-size: 22px;
+`
+
+
+const LinksWrapper = styled.div`
+    display: flex;
+    gap: 25px;
 `
 
 const CTA = styled(Link)`
@@ -28,16 +35,9 @@ const CTA = styled(Link)`
     border-radius: 5px;
 `
 
-const LinksWrapper = styled.div`
-    display: flex;
-    gap: 15px;
-    
-`
-
 const Logo = styled.img`
-    width: 100%;
-    height: 100%;
-    max-width: 100px;
+    width: 50px;
+    height: 50px;
 `
 
 
@@ -46,13 +46,13 @@ const Navbar = () => {
         <Container>
             <NavWrapper>
                 <LinksWrapper>
-                    <StyledLink href="" >Accueil</StyledLink>
-                    <StyledLink href="" >Couture</StyledLink>
-                    <StyledLink href="" >Flocage</StyledLink>
-                    <StyledLink href="" >Évènements saisonniers</StyledLink>
+                    <StyledLink href="/" >Accueil</StyledLink>
+                    <StyledLink href="/sewing" >Couture</StyledLink>
+                    <StyledLink href="/flocking" >Flocage</StyledLink>
+                    <StyledLink href="/seasonal" >Évènements saisonniers</StyledLink>
                 </LinksWrapper>
-                <StyledLink href="" ><Logo src="/C-line-nobg.webp" /></StyledLink>
-                <CTA href="" >Commander</CTA>
+                <StyledLink href="/" ><Logo src="/C-line-nobg.webp" /></StyledLink>
+                <CTA href="/contact" >Contact</CTA>
             </NavWrapper>
         </Container>
     )
