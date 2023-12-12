@@ -2,26 +2,32 @@ import react from "react";
 import styled from "styled-components";
 import MainTitle from "./Layout/Title";
 import colors from "@/assets/colors";
-import Review from "./Review";
+import TestimonialSlider from './TestimonialSlider';
 
 const Reviews = [
     {
-        name: "Toto1",
+        name: "Manuel Valls",
         id: "REVIEW1",
-        content: "Content toto lorem ipsum me llamo bambina1",
-        rating: 2,
+        content: "Content toto lorem ipsum me llamo bambina1 Content toto lorem ipsum me llamo bambina1",
+        photo: "/flocage.jpg",
     },
     {
-        name: "Toto2",
+        name: "Jean-Paul Belmondo",
         id: "REVIEW2",
-        content: "Content toto lorem ipsum me llamo bambina2",
-        rating: 5,
+        content: "Content toto lorem ipsum me llamo bambina1 Content toto lorem ipsum me llamo bambina1",
+        photo: "/flocage.jpg",
     },
     {
-        name: "Toto3",
+        name: "Adele",
         id: "REVIEW3",
-        content: "Content toto lorem ipsum me llamo bambina3",
-        rating: 0,
+        content: "Content toto lorem ipsum me llamo bambina1 Content toto lorem ipsum me llamo bambina1",
+        photo: "/flocage.jpg",
+    },
+    {
+        name: "Eminem",
+        id: "REVIEW4",
+        content: "Content toto lorem ipsum me llamo bambina1 Content toto lorem ipsum me llamo bambina1",
+        photo: "/flocage.jpg",
     },
 ]
 
@@ -32,29 +38,15 @@ const Container = styled.section`
     gap: 50px;
     align-items: center;
     width: 100%;
-`
-
-const TestimonialWrapper = styled.div`
-    display: flex;
-    justify-content: center;
-    gap: 50px;
-`
+    position: relative;
+`;
 
 const Testimonial = () => {
+
     return (
         <Container>
             <MainTitle title="Les avis" size="big" weight="bold" />
-            <TestimonialWrapper>
-            {Reviews.map((review) => (
-                <Review
-                key={review.id}
-                name={review.name}
-                id={review.id}
-                content={review.content}
-                rating={review.rating}
-                />
-            ))}
-            </TestimonialWrapper>
+            <TestimonialSlider reviews={Reviews} />
         </Container>
     );
 };

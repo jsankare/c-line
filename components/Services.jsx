@@ -50,6 +50,7 @@ const Container = styled.section`
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 100px;
     background-color: ${colors.secondary};
     box-shadow: 0 0 0 100vmax ${colors.secondary};
     clip-path: inset(0 -100vmax);
