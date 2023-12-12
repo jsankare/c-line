@@ -15,16 +15,19 @@ const QuoteIcon = styled(FontAwesomeIcon)`
     color: rgba(255, 255, 255, 0.4);
     position: absolute;
     line-height: 1;
-    top: 50%;
     transform: translateY(-50%);
     transition : ease-in-out 0.2s;
 
     &.fa-quote-left {
         left: 20px;
+        transition: top 0.2s ease-in-out;
+        top: 50%;
     }
 
     &.fa-quote-right {
         right: 20px;
+        transition: top 0.2s ease-in-out;
+        top: 50%;
     }
 `;
 

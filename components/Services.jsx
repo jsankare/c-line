@@ -9,7 +9,7 @@ const services = [
         id: "SERV1",
         title: "Couture",
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.",
-        link: "/",
+        link: "/sewing",
         picture: "/sewing.jpg",
         reversedLayout : false,
         arguments: [
@@ -22,8 +22,8 @@ const services = [
         id: "SERV2",
         title: "Flocage",
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.",
-        link: "/",
-        picture: "/next.svg",
+        link: "/flocking",
+        picture: "S001688399.webp",
         reversedLayout : true,
         arguments: [
             "Bon matériaux",
@@ -35,8 +35,8 @@ const services = [
         id: "SERV3",
         title: "Évènements saisonniers",
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.",
-        link: "/",
-        picture: "/next.svg",
+        link: "/seasonal",
+        picture: "/season.jpg",
         reversedLayout : false,
         arguments: [
             "Bon matériaux",
@@ -60,7 +60,8 @@ const Container = styled.section`
 const ServicesWrapper = styled.div`
     display: flex;
     flex-direction: column;
-    gap: 50px;
+    gap: 100px;
+    width: 100%;
 `
 
 const Services = () => {
@@ -76,6 +77,7 @@ const Services = () => {
                         picture={service.picture}
                         reversedLayout={service.reversedLayout}
                         arguments={service.arguments}
+                        link={service.link}
                     />
                 ))}
             </ServicesWrapper>
