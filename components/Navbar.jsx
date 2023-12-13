@@ -56,7 +56,7 @@ const Navbar = () => {
                     <StyledLink href="/" >Accueil</StyledLink>
                     <StyledLink href="/sewing" >Couture</StyledLink>
                     <StyledLink href="/flocking" >Flocage</StyledLink>
-                    <StyledLink href="/seasonal" >Évènements saisonniers</StyledLink>
+                    <StyledLink href="/products" >Produits</StyledLink>
                 </LinksWrapper>
                 <CTA href="/contact" >Contact</CTA>
             </NavWrapper>

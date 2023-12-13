@@ -56,9 +56,9 @@ const Footer = () => {
                 <TextWrapper>
                     <StyledLink href="/" >Accueil</StyledLink>
                     <StyledLink href="/sewing" >Couture</StyledLink>
-                    <StyledLink href="/" >Flocage</StyledLink>
-                    <StyledLink href="/" >Évènements saisonniers</StyledLink>
-                    <StyledLink href="/" >Contact</StyledLink>
+                    <StyledLink href="/flocking" >Flocage</StyledLink>
+                    <StyledLink href="/products" >Tous les produits</StyledLink>
+                    <StyledLink href="/contact" >Contact</StyledLink>
                 </TextWrapper>
                 <SocialsWrapper>
                     <StyledLink href="/" > <Logo src="/facebook.svg" /> </StyledLink>

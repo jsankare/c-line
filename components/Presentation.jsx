@@ -7,17 +7,19 @@ import colors from "@/assets/colors";
 const Container = styled.section`
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 30px;
     align-items: center;
     justify-content: center;
     background-color: ${colors.secondary};
+    width: 60%;
+    margin: 0 auto;
 `
 
-const Presentation = ( {title} ) => {
+const Presentation = ( {title, text} ) => {
     return (
         <Container>
             <SubTitle title={`à propos ${title}`} />
-            <Paragraph text="lorem ipsum lorem ipsum lorem ipsum lorem ipsum v lorem ipsum" />
+            <Paragraph text={text} />
         </Container>
     )
 }

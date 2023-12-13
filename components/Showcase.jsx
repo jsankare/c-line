@@ -1,19 +1,36 @@
 import react from "react";
 import styled from "styled-components";
-import Card from "./Card";
+import SubTitle from "./Layout/SubTitle";
+import ProductCard from "./ProductCard";
 
 const Container = styled.section`
     display: flex;
+    flex-direction: column;
     gap: 25px;
     justify-content: center;
+    align-items: center;
 `
 
-const Showcase = () => {
+const PicturesWrapper = styled.section`
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+`
+
+const Showcase = ( {products} ) => {
     return (
         <Container>
-            <Card description="totodescription" title="tototitle" link="/" />
-            <Card description="totodescription" title="tototitle" link="/" />
-            <Card description="totodescription" title="tototitle" link="/" />
+            <SubTitle title="Un exemple de produits" />
+            <PicturesWrapper>
+            {products.map((product) => (
+                    <ProductCard
+                        key={product.id}
+                        picture={product.picture}
+                        text={product.catchphrase}
+                        title={product.name}
+                    />
+            ))}
+            </PicturesWrapper>
         </Container>
     )
 }
