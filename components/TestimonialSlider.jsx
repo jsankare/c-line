@@ -11,7 +11,8 @@ const growAnimation = keyframes`
 `;
 
 const QuoteIcon = styled(FontAwesomeIcon)`
-    width: 36px;
+    font-size: 26px;
+    width: 30px;
     color: rgba(255, 255, 255, 0.4);
     position: absolute;
     line-height: 1;
@@ -21,13 +22,13 @@ const QuoteIcon = styled(FontAwesomeIcon)`
     &.fa-quote-left {
         left: 20px;
         transition: top 0.2s ease-in-out;
-        top: 50%;
+        top: 35%;
     }
 
     &.fa-quote-right {
         right: 20px;
         transition: top 0.2s ease-in-out;
-        top: 50%;
+        top: 35%;
     }
 `;
 

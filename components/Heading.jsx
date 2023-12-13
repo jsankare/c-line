@@ -13,11 +13,26 @@ const Container = styled.section `
     background: linear-gradient(180deg, rgb(255, 148, 148), rgb(255, 209, 209));
 `
 
-const Heading = ( {title, subtitle} ) => {
+const PicWrapper = styled.div`
+    width: 100%;
+    height: 40vh;
+    overflow: hidden;
+`
+
+const Picture = styled.img`
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+`
+
+const Heading = ( {title, subtitle, picture} ) => {
     return (
         <Container>
             <MainTitle title={title} />
             <SubTitle title={subtitle} size="small" />
+            <PicWrapper>
+                 <Picture src={picture} />
+            </PicWrapper>
         </Container>
     )
 }

@@ -2,6 +2,8 @@ import react from "react";
 import styled from "styled-components";
 import colors from "@/assets/colors";
 import Link from "next/link";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 
 const Container = styled.section`
     background-color: ${colors.primary};
@@ -26,6 +28,7 @@ const LinksWrapper = styled.div`
     display: flex;
     gap: 25px;
     align-items: center;
+    justify-content: center;
 `
 
 const CTA = styled(Link)`
@@ -46,6 +49,16 @@ const Logo = styled.img`
     height: 50px;
 `
 
+const StyledIcon = styled(FontAwesomeIcon)`
+    background-color: ${colors.fourth};
+    padding: 10px;
+    border-radius: 50%;
+    color: ${colors.primary};
+    &:hover {
+
+    }
+`
+
 
 const Navbar = () => {
     return (
@@ -58,7 +71,10 @@ const Navbar = () => {
                     <StyledLink href="/flocking" >Flocage</StyledLink>
                     <StyledLink href="/products" >Produits</StyledLink>
                 </LinksWrapper>
-                <CTA href="/contact" >Contact</CTA>
+                <LinksWrapper>
+                    <CTA href="/contact" >Contact</CTA>
+                    <StyledLink href="/cart" > <StyledIcon icon={faCartShopping} /> </StyledLink>
+                </LinksWrapper>
             </NavWrapper>
         </Container>
     )
