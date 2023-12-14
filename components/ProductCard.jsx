@@ -112,7 +112,7 @@ const Price = styled.p`
 
 const AddtoCart = styled.button`
     cursor: pointer;
-    bottom: 0px;
+    bottom: 10px;
     padding: 10px 15px;
     position: absolute;
     border: none;
@@ -153,6 +153,8 @@ const ProductCard = ({ title, text, picture, price }) => {
         console.log("Removed from cart");
     };
 
+    const isPriceAvailable = price !== undefined && price !== null && price !== '';
+
     return (
         <Container>
             <Front>
@@ -163,8 +165,13 @@ const ProductCard = ({ title, text, picture, price }) => {
                 <Title>{title}</Title>
                 <Text>{text}</Text>
                 <Price>{price}</Price>
-                {!addedToCart && <AddtoCart onClick={addToCart}>Ajouter au panier</AddtoCart>}
-                {addedToCart && <RemoveFromCart onClick={removeFromCart}>Retirer du panier</RemoveFromCart>}
+                {isPriceAvailable && <Price>{price}</Price>}
+                {isPriceAvailable && !addedToCart && (
+                    <AddtoCart onClick={addToCart}>Ajouter au panier</AddtoCart>
+                )}
+                {isPriceAvailable && addedToCart && (
+                    <RemoveFromCart onClick={removeFromCart}>Retirer du panier</RemoveFromCart>
+                )}
             </Flipside>
         </Container>
     );
