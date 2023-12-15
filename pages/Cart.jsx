@@ -1,12 +1,13 @@
 import react from "react";
 import styled from "styled-components";
+import CartDisplay from "@/components/Cart";
 
 const Container = styled.section``
 
 const Cart = () => {
     return (
         <Container>
-            <p>toto</p>
+            <CartDisplay />
         </Container>
     )
 }

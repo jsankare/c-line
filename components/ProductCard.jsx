@@ -1,7 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import colors from "@/assets/colors";
-import { useState } from "react";
 
 const Container = styled.div`
     position: relative;
@@ -86,10 +85,10 @@ const Text = styled.p`
     padding: 0px 15px;
     text-align: center;
     position: absolute;
-    top: 60%;
+    top: 80%;
     ${Container}:hover & {
         opacity: 1;
-        top: 40%;
+        top: 50%;
     }
 `;
 
@@ -159,11 +158,34 @@ const ProductCard = ({ title, text, picture, price }) => {
     const [addedToCart, setAddedToCart] = useState(false);
     const [numberOfItems, setNumberOfItems] = useState(0);
 
+    useEffect(() => {
+        const cart = JSON.parse(localStorage.getItem("cart")) || {}
+        const cartItem = cart[title]
+
+        if (cartItem) {
+            setAddedToCart(true)
+            setNumberOfItems(cartItem.quantity)
+        }
+    }, [title]);
+
+    useEffect(() => {
+        const cart = JSON.parse(localStorage.getItem("cart")) || {};
+        const updatedCart = { ...cart };
+    
+        if (addedToCart) {
+            updatedCart[title] = { price, quantity: numberOfItems };
+        } else {
+            delete updatedCart[title];
+        }
+    
+        localStorage.setItem("cart", JSON.stringify(updatedCart));
+    }, [title, addedToCart, numberOfItems, price]);
+
     const incrementItem = () => {
         setNumberOfItems(numberOfItems + 1)
     }
 
-    const decrementtItem = () => {
+    const decrementItem = () => {
         if (numberOfItems > 0) {
             setNumberOfItems(numberOfItems - 1)
         }
@@ -171,10 +193,12 @@ const ProductCard = ({ title, text, picture, price }) => {
 
     const addToCart = () => {
         setAddedToCart(true);
+        setNumberOfItems(1)
     };
 
     const removeFromCart = () => {
         setAddedToCart(false);
+        setNumberOfItems(0);
     };
 
     const isPriceAvailable = price !== undefined && price !== null && price !== '';
@@ -188,14 +212,13 @@ const ProductCard = ({ title, text, picture, price }) => {
                 <Filter />
                 <Title>{title}</Title>
                 <Text>{text}</Text>
-                <Price>{price}</Price>
-                {isPriceAvailable && <Price>{price}</Price>}
+                {isPriceAvailable && <Price>{price}€</Price>}
                 {isPriceAvailable && !addedToCart && (
                     <AddtoCart onClick={addToCart}>Ajouter au panier</AddtoCart>
                 )}
                 {isPriceAvailable && addedToCart && (
                     <CartPreview>
-                        <RemoveOne onClick={decrementtItem}>-</RemoveOne>
+                        <RemoveOne onClick={decrementItem}>-</RemoveOne>
                         <NumberOfItems>{numberOfItems}</NumberOfItems>
                         <AddOne onClick={incrementItem}>+</AddOne>
                     </CartPreview>

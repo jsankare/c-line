@@ -12,22 +12,19 @@ const data = [
                 title: "produit 1",
                 text: "description produit 1",
                 picture: "/flocage.jpg",
-                price: "5€",
-                amount: 0
+                price: "5",
             },
             {
                 title: "produit 2",
                 text: "description produit 2",
                 picture: "/next.svg",
-                price: "8€",
-                amount: 0
+                price: "8",
             },
             {
                 title: "produit 3",
                 text: "description produit 3",
                 picture: "/next.svg",
-                price: "12€",
-                amount: 0
+                price: "12",
             }
         ]
     },
@@ -38,22 +35,19 @@ const data = [
                 title: "Sur Tasse",
                 text: "Description du produit",
                 picture: "/next.svg",
-                price: "500€",
-                amount: 0
+                price: "500",
             },
             {
                 title: "Sur T-Shirt",
                 text: "Description du produit",
                 picture: "/next.svg",
-                price: "1200€",
-                amount: 0
+                price: "1200",
             },
             {
                 title: "Produit 3",
                 text: "Description du produit",
                 picture: "/next.svg",
-                price: "100€",
-                amount: 0
+                price: "100",
             }
         ]
     }
@@ -92,7 +86,7 @@ const Products = () => {
                                 <ProductCard
                                 key={productIndex}
                                 title={product.title}
-                                description={product.text}
+                                text={product.text}
                                 price={product.price}
                                 picture={product.picture}
                                 />

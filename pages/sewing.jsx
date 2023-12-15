@@ -4,6 +4,7 @@ import Heading from "@/components/Heading";
 import Presentation from "@/components/Presentation";
 import colors from "@/assets/colors";
 import Showcase from "@/components/Showcase";
+import Cta from "@/components/Layout/Cta";
 
 const products = [
     {
@@ -34,12 +35,19 @@ const Container = styled.section`
     padding-bottom: 50px;
 `
 
+const CtaWrapper = styled.div`
+    text-align: center;
+`
+
 const Sewing = () => {
     return (
         <Container>
             <Heading title="Couture" subtitle="subtitle here lorem ipsum" picture="sewing.jpg" />
             <Presentation title="de la couture" text="La couture artisanale incarne l'essence même du talent et de la délicatesse. Chaque point, chaque couture est soigneusement exécuté avec une précision méticuleuse, créant ainsi des pièces uniques chargées d'histoire et d'authenticité. Les créateurs d'exception manient l'aiguille et le fil avec une habileté inégalée, transformant des tissus sélectionnés avec soin en vêtements et accessoires qui racontent une histoire. Chaque article cousu à la main est le fruit d'un travail minutieux, imprégné de passion, d'expertise et d'un dévouement absolu à l'artisanat. L'attention portée aux détails et la qualité exceptionnelle font de la couture artisanale bien plus qu'un simple vêtement, mais une œuvre d'art intemporelle."  />
             <Showcase products={products} />
+            <CtaWrapper>
+                <Cta text="J'en veux !" href="/products" />
+            </CtaWrapper>
         </Container>
     )
 }
