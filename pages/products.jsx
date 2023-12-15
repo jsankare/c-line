@@ -2,6 +2,7 @@ import react from "react";
 import styled from "styled-components";
 import Heading from "@/components/Heading";
 import ProductCard from "@/components/ProductCard";
+import colors from "@/assets/colors";
 
 const data = [
     {
@@ -11,19 +12,22 @@ const data = [
                 title: "produit 1",
                 text: "description produit 1",
                 picture: "/flocage.jpg",
-                price: "5€"
+                price: "5€",
+                amount: 0
             },
             {
                 title: "produit 2",
                 text: "description produit 2",
                 picture: "/next.svg",
-                price: "8€"
+                price: "8€",
+                amount: 0
             },
             {
                 title: "produit 3",
                 text: "description produit 3",
                 picture: "/next.svg",
-                price: "12€"
+                price: "12€",
+                amount: 0
             }
         ]
     },
@@ -34,19 +38,22 @@ const data = [
                 title: "Sur Tasse",
                 text: "Description du produit",
                 picture: "/next.svg",
-                price: "500€"
+                price: "500€",
+                amount: 0
             },
             {
                 title: "Sur T-Shirt",
                 text: "Description du produit",
                 picture: "/next.svg",
-                price: "1200€"
+                price: "1200€",
+                amount: 0
             },
             {
                 title: "Produit 3",
                 text: "Description du produit",
                 picture: "/next.svg",
-                price: "100€"
+                price: "100€",
+                amount: 0
             }
         ]
     }
@@ -57,12 +64,14 @@ const Container = styled.section`
     display: flex;
     flex-direction: column;
     gap: 100px;
+    background-color: ${colors.secondary};
 `
 
 const ProductsWrapper = styled.section`
     display: flex;
     flex-direction: column;
     gap: 80px;
+    padding: 0px 0px 50px 0px;
 `
 
 const Products = () => {

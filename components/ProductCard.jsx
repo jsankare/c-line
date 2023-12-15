@@ -139,18 +139,42 @@ const RemoveFromCart = styled.button`
     color: ${colors.primary};
 `
 
+const CartPreview = styled.div`
+    position: absolute;
+    display: flex;
+    gap: 10px;
+    bottom: 10%;
+`
+
+const AddOne = styled.button``
+
+const RemoveOne = styled.button ``
+
+const NumberOfItems = styled.p`
+    color: ${colors.fourth};
+`
+
 const ProductCard = ({ title, text, picture, price }) => {
 
     const [addedToCart, setAddedToCart] = useState(false);
+    const [numberOfItems, setNumberOfItems] = useState(0);
+
+    const incrementItem = () => {
+        setNumberOfItems(numberOfItems + 1)
+    }
+
+    const decrementtItem = () => {
+        if (numberOfItems > 0) {
+            setNumberOfItems(numberOfItems - 1)
+        }
+    }
 
     const addToCart = () => {
         setAddedToCart(true);
-        console.log("totoaddtocart")
     };
 
     const removeFromCart = () => {
         setAddedToCart(false);
-        console.log("Removed from cart");
     };
 
     const isPriceAvailable = price !== undefined && price !== null && price !== '';
@@ -168,6 +192,13 @@ const ProductCard = ({ title, text, picture, price }) => {
                 {isPriceAvailable && <Price>{price}</Price>}
                 {isPriceAvailable && !addedToCart && (
                     <AddtoCart onClick={addToCart}>Ajouter au panier</AddtoCart>
+                )}
+                {isPriceAvailable && addedToCart && (
+                    <CartPreview>
+                        <RemoveOne onClick={decrementtItem}>-</RemoveOne>
+                        <NumberOfItems>{numberOfItems}</NumberOfItems>
+                        <AddOne onClick={incrementItem}>+</AddOne>
+                    </CartPreview>
                 )}
                 {isPriceAvailable && addedToCart && (
                     <RemoveFromCart onClick={removeFromCart}>Retirer du panier</RemoveFromCart>

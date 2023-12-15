@@ -33,7 +33,7 @@ const ContactForm = () => {
                 <Input input="adress" label="Adresse" />
                 <Input input="city" label="Ville" />
                 <Input input="zip" label="Code Postal" />
-                <SelectInput input="testSelect" label="Select Here" options={options} />
+                <SelectInput input="reason" label="Raison de votre message" options={options} />
             </StyledForm>
         </Container>
     )

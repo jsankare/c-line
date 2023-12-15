@@ -46,7 +46,7 @@ const Sewing = () => {
             <Presentation title="du flocage" text="Le flocage, un art créatif en constante évolution, fusionne la technique avec la liberté d'expression artistique. À travers des méthodes artisanales de qualité, il transforme des objets quotidiens en pièces uniques et personnalisées. Chaque motif, chaque détail est soigneusement appliqué avec précision, ajoutant une touche de personnalisation à des vêtements, accessoires ou articles promotionnels. En alliant habilement les compétences artisanales à l'innovation, le flocage offre un moyen authentique de donner vie à des idées, de créer des designs uniques et de mettre en valeur la créativité individuelle. Chaque objet flocqué devient ainsi une toile sur laquelle s'exprime l'artisanat et l'originalité, captivant ceux qui apprécient l'unicité et la qualité des créations artisanales."  />
             <Showcase products={products} />
             <CtaWrapper>
-                <Cta text="J'en veux !" href="/" />
+                <Cta text="J'en veux !" href="/products" />
             </CtaWrapper>
         </Container>
     )
