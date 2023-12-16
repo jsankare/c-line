@@ -1,11 +1,11 @@
 import react from "react";
 import styled from "styled-components";
+import colors from "@/assets/colors";
 
 const Container = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: fit-content;
     gap: 5px;
     font-size: 20px;
     width: 100%;
@@ -15,11 +15,10 @@ const StyledSelect = styled.select`
     border: none;
     border-radius: 3px;
     height: 30px;
+    font-size: 16px;
 `
 
-const StyledOption = styled.option`
-    background-color: #222020;
-`
+const StyledOption = styled.option``
 
 const StyledLabel = styled.label``
 
