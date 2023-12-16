@@ -25,6 +25,12 @@ const data = [
                 text: "description produit 3",
                 picture: "/next.svg",
                 price: "12",
+            },
+            {
+                title: "produit 3",
+                text: "description produit 3",
+                picture: "/next.svg",
+                price: "12",
             }
         ]
     },

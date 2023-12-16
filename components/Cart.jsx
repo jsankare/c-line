@@ -110,6 +110,12 @@ const Cart = () => {
         localStorage.setItem("cart", JSON.stringify(updatedCart));
     };
 
+    const emptyCart = () => {
+        const updatedCart = {};
+        setCart(updatedCart)
+        localStorage.removeItem("cart")
+    };
+
     return (
         <Container>
             <MainTitle title="Votre panier" />
@@ -146,7 +152,7 @@ const Cart = () => {
                 ) : (
                     <EmptyCartAlert>Votre panier est vide</EmptyCartAlert>
                 )}
-                <ModifyCartItemButton>Vider tout le panier</ModifyCartItemButton>
+                <ModifyCartItemButton onClick={emptyCart} >Vider tout le panier</ModifyCartItemButton>
                 <TotalPrice>Total: {totalPrice} €</TotalPrice>
             </CartWrapper>
         </Container>
