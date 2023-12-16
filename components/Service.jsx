@@ -4,6 +4,8 @@ import SubTitle from "./Layout/SubTitle";
 import Paragraph from "./Layout/Paragraph";
 import Link from "next/link";
 import colors from "@/assets/colors";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHandPointRight } from "@fortawesome/free-solid-svg-icons";
 
 const Container = styled.div`
     width: 100%;
@@ -48,6 +50,9 @@ const ArgumentsList = styled.ul`
 
 const ArgumentItem = styled.li`
     margin-bottom: 5px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
 `
 
 const StyledLink = styled(Link)`
@@ -69,6 +74,10 @@ const StyledLink = styled(Link)`
     }
 `
 
+const StyledIcon = styled(FontAwesomeIcon)`
+    width: 20px;
+`
+
 
 const Service = ( {title, description, picture, reversedLayout, arguments: serviceArguments, link} ) => {
     return (
@@ -78,7 +87,7 @@ const Service = ( {title, description, picture, reversedLayout, arguments: servi
                 <Paragraph text={description} />
                 <ArgumentsList>
                     {serviceArguments.map((arg, index) => (
-                        <ArgumentItem key={index}>{arg}</ArgumentItem>
+                        <ArgumentItem key={index}> <StyledIcon icon={faHandPointRight} /> {arg}</ArgumentItem>
                     ))}
                 </ArgumentsList>
             </Content>

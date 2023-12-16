@@ -14,24 +14,28 @@ const data = [
                 text: "description produit 1",
                 picture: "/flocage.jpg",
                 price: "5",
+                id: "PSW1",
             },
             {
                 title: "produit 2",
                 text: "description produit 2",
                 picture: "/next.svg",
                 price: "8",
+                id: "PSW2",
             },
             {
                 title: "produit 3",
                 text: "description produit 3",
                 picture: "/next.svg",
                 price: "12",
+                id: "PSW3",
             },
             {
-                title: "produit 3",
-                text: "description produit 3",
+                title: "produit 4",
+                text: "description produit 4",
                 picture: "/next.svg",
                 price: "12",
+                id: "PSW4",
             }
         ]
     },
@@ -43,18 +47,21 @@ const data = [
                 text: "Description du produit",
                 picture: "/next.svg",
                 price: "500",
+                id: "PFC1",
             },
             {
                 title: "Sur T-Shirt",
                 text: "Description du produit",
                 picture: "/next.svg",
                 price: "1200",
+                id: "PFC2",
             },
             {
                 title: "Produit 3",
                 text: "Description du produit",
                 picture: "/next.svg",
                 price: "100",
+                id: "PFC3",
             }
         ]
     }

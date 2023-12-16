@@ -63,7 +63,7 @@ const ItemDetailWrapper = styled.div`
 `
 
 const EmptyCartAlert = styled.p`
-
+    font-size: 18px;
 `
 
 const ModifyCartItemButton = styled.button`
@@ -152,8 +152,12 @@ const Cart = () => {
                 ) : (
                     <EmptyCartAlert>Votre panier est vide</EmptyCartAlert>
                 )}
-                <ModifyCartItemButton onClick={emptyCart} >Vider tout le panier</ModifyCartItemButton>
-                <TotalPrice>Total: {totalPrice} €</TotalPrice>
+                {Object.keys(cart).length > 0 && (
+                    <>
+                         <ModifyCartItemButton onClick={emptyCart} >Vider tout le panier</ModifyCartItemButton> 
+                        <TotalPrice>Total: {totalPrice} €</TotalPrice>
+                    </>
+                )}
             </CartWrapper>
         </Container>
     );
