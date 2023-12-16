@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Heading from "@/components/Heading";
 import ProductCard from "@/components/ProductCard";
 import colors from "@/assets/colors";
+import SubTitle from "@/components/Layout/SubTitle";
 
 const data = [
     {
@@ -74,6 +75,13 @@ const ProductsWrapper = styled.section`
     padding: 0px 0px 50px 0px;
 `
 
+const CategoryWrapper = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 50px;
+`
+
 const Products = () => {
     return (
         <Container>
@@ -81,13 +89,8 @@ const Products = () => {
             <ProductsWrapper>
                 {data.map((categoryData, index) => (
                     <ProductsWrapper key={index}>
-                        <h2>{categoryData.category}</h2>
-                        <div style={{
-                            display: 'flex',
-                            flexWrap: 'wrap',
-                            justifyContent: 'center',
-                            gap:'50px' 
-                            }}>
+                        <SubTitle title={categoryData.category} />
+                        <CategoryWrapper>
                             {categoryData.products.map((product, productIndex) => (
                                 <ProductCard
                                 key={productIndex}
@@ -97,7 +100,7 @@ const Products = () => {
                                 picture={product.picture}
                                 />
                             ))}
-                        </div>
+                        </CategoryWrapper>
                     </ProductsWrapper>
                 ))}
             </ProductsWrapper>

@@ -54,9 +54,6 @@ const StyledIcon = styled(FontAwesomeIcon)`
     padding: 10px;
     border-radius: 50%;
     color: ${colors.primary};
-    &:hover {
-
-    }
 `
 
 
