@@ -11,8 +11,13 @@ const data = [
         products: [
             {
                 title: "produit 1",
-                text: "description produit 1",
+                text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
                 picture: "/flocage.jpg",
+                closeups : [
+                    "sewing.jpg",
+                    "sewing2.png",
+                    "sewing3.png",
+                ],
                 price: "5",
                 id: "PSW1",
             },
@@ -20,6 +25,11 @@ const data = [
                 title: "produit 2",
                 text: "description produit 2",
                 picture: "/next.svg",
+                closeups : [
+                    "/flocage.jpg",
+                    "/flocage.jpg",
+                    "/flocage.jpg",
+                ],
                 price: "8",
                 id: "PSW2",
             },
@@ -27,6 +37,11 @@ const data = [
                 title: "produit 3",
                 text: "description produit 3",
                 picture: "/next.svg",
+                closeups : [
+                    "/flocage.jpg",
+                    "/flocage.jpg",
+                    "/flocage.jpg",
+                ],
                 price: "12",
                 id: "PSW3",
             },
@@ -34,6 +49,11 @@ const data = [
                 title: "produit 4",
                 text: "description produit 4",
                 picture: "/next.svg",
+                closeups : [
+                    "/flocage.jpg",
+                    "/flocage.jpg",
+                    "/flocage.jpg",
+                ],
                 price: "12",
                 id: "PSW4",
             }
@@ -46,6 +66,11 @@ const data = [
                 title: "Sur Tasse",
                 text: "Description du produit",
                 picture: "/next.svg",
+                closeups : [
+                    "/flocage.jpg",
+                    "/flocage.jpg",
+                    "/flocage.jpg",
+                ],
                 price: "500",
                 id: "PFC1",
             },
@@ -53,6 +78,11 @@ const data = [
                 title: "Sur T-Shirt",
                 text: "Description du produit",
                 picture: "/next.svg",
+                closeups : [
+                    "/flocage.jpg",
+                    "/flocage.jpg",
+                    "/flocage.jpg",
+                ],
                 price: "1200",
                 id: "PFC2",
             },
@@ -60,6 +90,11 @@ const data = [
                 title: "Produit 3",
                 text: "Description du produit",
                 picture: "/next.svg",
+                closeups : [
+                    "/flocage.jpg",
+                    "/flocage.jpg",
+                    "/flocage.jpg",
+                ],
                 price: "100",
                 id: "PFC3",
             }
@@ -98,13 +133,14 @@ const Products = () => {
                     <ProductsWrapper key={index}>
                         <SubTitle title={categoryData.category} />
                         <CategoryWrapper>
-                            {categoryData.products.map((product, productIndex) => (
+                            {categoryData.products.map((product, productIndex, closeups) => (
                                 <ProductCard
                                 key={productIndex}
                                 title={product.title}
                                 text={product.text}
                                 price={product.price}
                                 picture={product.picture}
+                                closeups={product.closeups}
                                 />
                             ))}
                         </CategoryWrapper>

@@ -29,16 +29,19 @@ const Item = styled.div`
 const ItemWrapper = styled.div`
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-    border: 1px solid black;
+    justify-content: center;
+    gap: 50px;
     padding: 15px;
-    min-width: 350px;
+    text-align: center;
+    min-width: 500px;
 `
 
 const ItemDetails = styled.div`
     display: flex;
     gap: 20px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 `
 
 const ItemName = styled.p`
@@ -62,6 +65,12 @@ const ItemDetailWrapper = styled.div`
     gap: 5px;
 `
 
+const ItemDetailFlexWrapper = styled.div`
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+`
+
 const EmptyCartAlert = styled.p`
     font-size: 18px;
 `
@@ -77,6 +86,13 @@ const ModifyCartItemButton = styled.button`
     &:active{
         font-size: 16px;
     }
+`
+
+const QuantityWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 `
 
 const Cart = () => {
@@ -129,22 +145,24 @@ const Cart = () => {
                         return (
                             <Item key={index}>
                                 <ItemWrapper>
-                                    <ModifyCartItemButton onClick={() => removeItem(title)}>-</ModifyCartItemButton>
                                     <ItemDetails>
                                         <ItemDetailWrapper>
                                             <ItemName>Produit</ItemName>{" "}
                                             <ItemValue>{title}</ItemValue>{" "}
                                         </ItemDetailWrapper>
-                                        <ItemDetailWrapper>
-                                            <ItemName>Quantité</ItemName>{" "}
-                                            <ItemValue>{quantity}</ItemValue>{" "}
-                                        </ItemDetailWrapper>
+                                        <ItemDetailFlexWrapper>
+                                            <ModifyCartItemButton onClick={() => removeItem(title)}>-</ModifyCartItemButton>
+                                                <QuantityWrapper>
+                                                    <ItemName>Quantité</ItemName>{" "}
+                                                    <ItemValue>{quantity}</ItemValue>{" "}
+                                                </QuantityWrapper>
+                                            <ModifyCartItemButton onClick={() => addItem(title)}>+</ModifyCartItemButton>
+                                        </ItemDetailFlexWrapper>
                                         <ItemDetailWrapper>
                                             <ItemName>Prix</ItemName>{" "}
                                             <ItemValue>{price}€</ItemValue>{" "}
                                         </ItemDetailWrapper>
                                     </ItemDetails>
-                                    <ModifyCartItemButton onClick={() => addItem(title)}>+</ModifyCartItemButton>
                                 </ItemWrapper>
                             </Item>
                         );
@@ -159,6 +177,7 @@ const Cart = () => {
                     </>
                 )}
             </CartWrapper>
+
         </Container>
     );
 };

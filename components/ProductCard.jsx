@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import Modal from "./Modal";
 import colors from "@/assets/colors";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
 const Container = styled.div`
     position: relative;
@@ -44,7 +47,6 @@ const Picture = styled.img`
     height: 100%;
     object-fit: cover;
     border-radius: 15px;
-
 `;
 
 const Filter = styled.div`
@@ -63,7 +65,6 @@ const Filter = styled.div`
 `;
 
 const Title = styled.h3`
-    z-index: 1000;
     opacity: 0;
     color: ${colors.primary};
     transition: opacity 0.3s ease-in-out;
@@ -77,7 +78,6 @@ const Title = styled.h3`
 `;
 
 const Text = styled.p`
-    z-index: 1000;
     opacity: 0;
     color: ${colors.primary};
     transition: opacity 0.3s ease-in-out;
@@ -87,6 +87,10 @@ const Text = styled.p`
     text-align: center;
     position: absolute;
     top: 80%;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
     ${Container}:hover & {
         opacity: 1;
         top: 50%;
@@ -94,7 +98,6 @@ const Text = styled.p`
 `;
 
 const Price = styled.p`
-    z-index: 1000;
     opacity: 0;
     color: ${colors.primary};
     transition: opacity 0.3s ease-in-out;
@@ -121,6 +124,7 @@ const AddtoCart = styled.button`
     background-color: black;
     font-size: 18px;
     color: ${colors.primary};
+    z-index: 999;
     ${Container}:hover & {
         bottom: 25px;
     }
@@ -154,10 +158,37 @@ const NumberOfItems = styled.p`
     color: ${colors.fourth};
 `
 
-const ProductCard = ({ title, text, picture, price }) => {
+const ModalDisplay = styled.p`
+    position: absolute;
+    z-index: 999;
+    font-size: 20px;
+    top: 10px;
+    right: 10px;
+    color: black;
+    transition: ease-in-out 0.5s;
+    &:hover {
+        cursor: pointer;
+    }
+    ${Container}:hover & {
+        color: ${colors.primary};
+    }
+`
+
+const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
+
+`
+
+const ProductCard = ({ title, text, picture, price, closeups }) => {
 
     const [addedToCart, setAddedToCart] = useState(false);
     const [numberOfItems, setNumberOfItems] = useState(0);
+    const [showModal, setShowModal] = useState(false);
+    const [selectedProduct, setSelectedProduct] = useState(null);
+
+    const toggleModal = (product) => {
+        setSelectedProduct(product);
+        setShowModal(!showModal);
+      };
 
     useEffect(() => {
         const cart = JSON.parse(localStorage.getItem("cart")) || {}
@@ -206,6 +237,7 @@ const ProductCard = ({ title, text, picture, price }) => {
 
     return (
         <Container>
+            <ModalDisplay onClick={() => toggleModal({ title, text, picture, price, closeups })} > <StyledFontAwesomeIcon icon={faMagnifyingGlass} /> </ModalDisplay>
             <Front>
                 <Picture src={picture} alt={title} />
             </Front>
@@ -228,6 +260,12 @@ const ProductCard = ({ title, text, picture, price }) => {
                     <RemoveFromCart onClick={removeFromCart}>Retirer du panier</RemoveFromCart>
                 )}
             </Flipside>
+            <Modal
+                isOpen={showModal}
+                onClose={() => setShowModal(false)}
+                product={selectedProduct}
+                closeups={closeups}
+            />
         </Container>
     );
 };
