@@ -205,7 +205,7 @@ const ProductCard = ({ title, text, picture, price, closeups }) => {
         const updatedCart = { ...cart };
     
         if (addedToCart) {
-            updatedCart[title] = { price, quantity: numberOfItems };
+            updatedCart[title] = { price, quantity: numberOfItems, picture };
         } else {
             delete updatedCart[title];
         }

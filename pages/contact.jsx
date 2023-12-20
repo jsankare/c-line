@@ -6,7 +6,7 @@ import colors from "@/assets/colors";
 import Heading from "@/components/Heading";
 
 const Container = styled.section`
-    background-color: ${colors.primary};
+    background-color: ${colors.secondary};
 `
 
 const Contact = () => {

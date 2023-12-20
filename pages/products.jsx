@@ -133,7 +133,7 @@ const Products = () => {
                     <ProductsWrapper key={index}>
                         <SubTitle title={categoryData.category} />
                         <CategoryWrapper>
-                            {categoryData.products.map((product, productIndex, closeups) => (
+                            {categoryData.products.map((product, productIndex) => (
                                 <ProductCard
                                 key={productIndex}
                                 title={product.title}

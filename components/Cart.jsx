@@ -18,37 +18,27 @@ const Container = styled.section`
 const CartWrapper = styled.div`
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 10px;
+    gap: 20px;
 `
 
 const Item = styled.div`
     margin-bottom: 10px;
 `
 
-const ItemWrapper = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 50px;
-    padding: 15px;
-    text-align: center;
-    min-width: 500px;
-`
-
 const ItemDetails = styled.div`
     display: flex;
-    gap: 20px;
-    justify-content: center;
     align-items: center;
     text-align: center;
-`
-
-const ItemName = styled.p`
+    justify-content: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 100px;
+    font-size: 20px;
     font-weight: bold;
 `
 
 const ItemValue = styled.p`
+    font-weight: bold;
 `
 
 
@@ -58,21 +48,30 @@ const TotalPrice = styled.p`
     margin-top: 20px;
 `
 
-const ItemDetailWrapper = styled.div`
+const ItemDetailFlexWrapper = styled.div`
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
     gap: 5px;
 `
 
-const ItemDetailFlexWrapper = styled.div`
+const ItemDetailCollumnWrapper = styled.div`
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     gap: 5px;
+    max-width: 200px;
 `
 
 const EmptyCartAlert = styled.p`
     font-size: 18px;
+    text-align: center;
+`
+
+const CollumnHeader = styled.p`
+    font-weight: bold;
+    font-size: 20px;
 `
 
 const ModifyCartItemButton = styled.button`
@@ -81,18 +80,39 @@ const ModifyCartItemButton = styled.button`
     width: fit-content;
     height: 30px;
     border-radius: 5px;
-    background-color: ${colors.primary};
+    background-color: ${colors.secondary};
     font-size: 18px;
+    &:hover {
+        cursor: pointer;
+    }
     &:active{
         font-size: 16px;
     }
 `
 
-const QuantityWrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+const EmptyCartItemButton = styled.button`
+    background-color: ${colors.fourth};
+    border: none;
+    width: fit-content;
+    height: 30px;
+    border-radius: 5px;
+    background-color: ${colors.secondary};
+    font-size: 18px;
+    background-color: ${colors.primary};
+    padding: 5px 10px;
+    border-radius: 5px;
+    &:hover {
+        cursor: pointer;
+    }
+    &:active{
+        font-size: 16px;
+    }
+`
+
+const ProductImage = styled.img`
+    width: 100%;
+    max-width: 250px;
+    max-height: 200px;
 `
 
 const Cart = () => {
@@ -136,47 +156,54 @@ const Cart = () => {
         <Container>
             <MainTitle title="Votre panier" />
             <CartWrapper>
+                {Object.keys(cart).length > 0 && (
+                    <ItemDetails>
+                        <CollumnHeader>Produit</CollumnHeader>
+                        <CollumnHeader>Prix</CollumnHeader>
+                        <CollumnHeader>Quantité</CollumnHeader>
+                        <CollumnHeader>Total</CollumnHeader>
+                    </ItemDetails>
+                )}
+
                 {Object.keys(cart).length > 0 ? (
                     Object.keys(cart).map((title, index) => {
-                        const { price, quantity } = cart[title];
+                        const { price, quantity, picture } = cart[title];
                         const itemTotal = price * quantity;
                         totalPrice += itemTotal;
 
                         return (
                             <Item key={index}>
-                                <ItemWrapper>
                                     <ItemDetails>
-                                        <ItemDetailWrapper>
-                                            <ItemName>Produit</ItemName>{" "}
+                                        <ItemDetailCollumnWrapper>
+                                        <ProductImage
+                                            src={picture}
+                                            alt={title}
+                                            width="50"
+                                            height="50"
+                                        />
                                             <ItemValue>{title}</ItemValue>{" "}
-                                        </ItemDetailWrapper>
+                                        </ItemDetailCollumnWrapper>
                                         <ItemDetailFlexWrapper>
                                             <ModifyCartItemButton onClick={() => removeItem(title)}>-</ModifyCartItemButton>
-                                                <QuantityWrapper>
-                                                    <ItemName>Quantité</ItemName>{" "}
-                                                    <ItemValue>{quantity}</ItemValue>{" "}
-                                                </QuantityWrapper>
+                                            <ItemValue>{quantity}</ItemValue>{" "}
                                             <ModifyCartItemButton onClick={() => addItem(title)}>+</ModifyCartItemButton>
                                         </ItemDetailFlexWrapper>
-                                        <ItemDetailWrapper>
-                                            <ItemName>Prix</ItemName>{" "}
-                                            <ItemValue>{price}€</ItemValue>{" "}
-                                        </ItemDetailWrapper>
+                                        <ItemValue>{price} €</ItemValue>{" "}
+                                        <ItemValue>{price * quantity} €</ItemValue>
                                     </ItemDetails>
-                                </ItemWrapper>
                             </Item>
                         );
                     })
                 ) : (
                     <EmptyCartAlert>Votre panier est vide</EmptyCartAlert>
                 )}
-                {Object.keys(cart).length > 0 && (
+            </CartWrapper>
+            {Object.keys(cart).length > 0 && (
                     <>
-                         <ModifyCartItemButton onClick={emptyCart} >Vider tout le panier</ModifyCartItemButton> 
+                         <EmptyCartItemButton onClick={emptyCart} >Vider tout le panier</EmptyCartItemButton> 
                         <TotalPrice>Total: {totalPrice} €</TotalPrice>
                     </>
                 )}
-            </CartWrapper>
 
         </Container>
     );
