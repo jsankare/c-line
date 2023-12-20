@@ -12,7 +12,6 @@ const Validate = styled.button`
     width: 100%;
     font-size: 20px;
     max-width: 250px;
-    height: 30px;
     border-radius: 5px;
     border: none;
     transition: ease-in-out 0.2s;

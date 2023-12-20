@@ -16,7 +16,10 @@ const StyledAside = styled.aside`
     gap: 10%;
     padding: 20px;
     flex: 1;
-`;
+    @media (max-width : 768px) {
+        gap: 20px;
+    }
+`
 
 const Container = styled.section`
     background-color: ${colors.secondary};
@@ -25,7 +28,10 @@ const Container = styled.section`
     display: flex;
     align-items: stretch;
     gap: 50px;
-`;
+    @media (max-width : 870px) {
+        flex-direction: column;
+    }
+`
 
 
 const CartWrapper = styled.div`
@@ -36,6 +42,9 @@ const CartWrapper = styled.div`
     gap: 100px;
     flex: 4;
     padding: 20px 0px;
+    @media (max-width : 768px) {
+        padding: 20px;
+    }
 `
 
 const Item = styled.div`
@@ -44,6 +53,7 @@ const Item = styled.div`
     flex-direction: column;
     align-items: center;
     gap: 20px;
+    padding: 0px 15px;
 `
 
 const ItemDetails = styled.div`
@@ -55,6 +65,12 @@ const ItemDetails = styled.div`
     gap: 100px;
     font-size: 20px;
     font-weight: bold;
+    @media (max-width : 570px) {
+        gap: 50px;
+    }
+    @media (max-width : 570px) {
+        grid-template-columns: 1fr 1fr;
+    }
 `
 
 const ItemValue = styled.p`
@@ -133,7 +149,7 @@ const ProductImage = styled.img`
     max-width: 250px;
     max-height: 200px;
     border-radius: 5px;
-    @media (max-width : 768px) {
+    @media (max-width : 870px) {
         display: none;
     }
 `
