@@ -26,7 +26,10 @@ const SelectInput = ( {input, label, options} ) => {
     return (
         <Container>
             <StyledLabel for={input} >{label}</StyledLabel>
-            <StyledSelect name={input}>
+            <StyledSelect name={input} defaultValue="" required>
+                <StyledOption value="" disabled hidden>
+                    Choisissez une option
+                </StyledOption>
                 {options.map((option, index) => (
                     <StyledOption key={index} value={option}>
                         {option}

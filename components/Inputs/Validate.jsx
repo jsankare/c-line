@@ -1,5 +1,6 @@
 import react from "react";
 import styled from "styled-components";
+import colors from "@/assets/colors";
 
 const Container = styled.div`
     width: 100%;
@@ -8,13 +9,17 @@ const Container = styled.div`
 
 const Validate = styled.button`
     width: 100%;
-    font-size: 16px;
+    font-size: 20px;
     max-width: 250px;
     height: 30px;
     border-radius: 5px;
     border: none;
+    transition: ease-in-out 0.2s;
+    &:hover {
+        background-color: ${colors.primary};
+    }
     &:active {
-        transform: scale(0.95);
+        font-size: 18px;
     }
 `
 

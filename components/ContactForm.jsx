@@ -4,13 +4,16 @@ import Input from "./Inputs/Input";
 import SelectInput from "./Inputs/Select";
 import MainTitle from "./Layout/Title";
 import ValidateInput from "./Inputs/Validate";
+import TextArea from "./Inputs/TextArea";
 
 const Container = styled.section`
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 50px;
     width: 100%;
+    padding: 50px 0;
 `
 
 const StyledForm = styled.form`
@@ -18,32 +21,23 @@ const StyledForm = styled.form`
     flex-direction: column;
     align-items: center;
     gap: 25px;
-`
-
-const Grid = styled.div`
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
+    max-width: 20%;
+    width: 100%;
 `
 
 const ContactForm = () => {
 
-    const options = ["Option 1", "Option 2", "Option 3"];
+    const options = ["Un autre raison", "Question sur les produits", "Problème sur le site"];
     
     return (
         <Container>
             <MainTitle title="Pour nous joindre" />
             <StyledForm>
-                <Grid>
-                    <Input input="firstName" label="Prénom" />
-                    <Input input="lastName" label="Nom" />
-                    <Input input="email" label="Email" />
-                    <Input input="phone" label="Téléphone" />
-                    <Input input="adress" label="Adresse" />
-                    <Input input="city" label="Ville" />
-                    <Input input="zip" label="Code Postal" />
-                    <SelectInput input="reason" label="Raison de votre message" options={options} />
-                </Grid>
+                <Input input="firstName" label="Prénom" />
+                <Input input="lastName" label="Nom" />
+                <Input input="email" label="Email" />
+                <SelectInput input="reason" label="Raison de votre message" options={options} />
+                <TextArea input="message" label="Message" />
                 <ValidateInput text="Envoyer" />
             </StyledForm>
         </Container>
