@@ -14,6 +14,9 @@ const Container = styled.div`
     align-items: center;
     flex-direction: ${(props) => (props.reversed ? "row-reverse" : "row")};
     gap: 50px;
+    @media (max-width : 768px) {
+        flex-direction: column;
+    }
 `
 
 const Content = styled.div`
@@ -22,6 +25,9 @@ const Content = styled.div`
     flex-direction: column;
     gap: 15px;
     max-width: 50%;
+    @media (max-width : 768px) {
+        max-width: 80%;
+    }
 `
 
 const Picture = styled.img`
@@ -40,6 +46,9 @@ const PicWrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    @media (max-width : 768px) {
+        border-radius: 0px;
+    }
 `
 
 const ArgumentsList = styled.ul`

@@ -5,6 +5,7 @@ import colors from "@/assets/colors";
 const Container = styled.div`
     width: 100%;
     text-align: center;
+    cursor: pointer;
 `
 
 const Validate = styled.button`

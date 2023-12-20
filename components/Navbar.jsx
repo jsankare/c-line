@@ -1,20 +1,32 @@
-import react from "react";
+import react, { useState } from "react";
 import styled from "styled-components";
 import colors from "@/assets/colors";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
+import { faCartShopping, faBars } from "@fortawesome/free-solid-svg-icons";
 
 const Container = styled.section`
     background-color: ${colors.primary};
     padding: 20px;
 `
 
-const NavWrapper = styled.div`
+const NavDesktopWrapper = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0px 25px;
+    @media (max-width : 768px) {
+        display: none;
+    }
+`
+
+const NavMobileWrapper = styled.div`
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+    @media (max-width : 768px) {
+        display: flex;
+    }
 `
 
 const StyledLink = styled(Link)`
@@ -25,14 +37,36 @@ const StyledLink = styled(Link)`
     &:hover {
         text-decoration: underline;
     }
+    @media (max-width : 768px) {
+        color: ${colors.primary};
+        &:hover {
+            text-decoration: none;
+            color: black;
+        }
+    }
 `
-
 
 const LinksWrapper = styled.div`
     display: flex;
     gap: 25px;
     align-items: center;
     justify-content: center;
+`
+
+const MobileLinksWrapper = styled.div`
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    display: none;
+    position: absolute;
+    top: 10%;
+    left: 5px;
+    background-color: white;
+    border-radius: 5px;
+    padding: 5px;
+    @media (max-width : 768px) {
+        display: flex;
+    }
 `
 
 const CTA = styled(Link)`
@@ -58,13 +92,40 @@ const StyledIcon = styled(FontAwesomeIcon)`
     padding: 10px;
     border-radius: 50%;
     color: ${colors.primary};
+    @media (max-width : 425px) {
+        display: none;
+    }
+`
+
+const Burger = styled.div`
+    cursor: pointer;
+`
+
+const BurgerIcon = styled(FontAwesomeIcon)`
+    color: ${colors.fourth};
+    font-size: 28px;
 `
 
 
 const Navbar = () => {
+
+    const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
+
+    const toggleNav = () => {
+        setIsMobileNavOpen(!isMobileNavOpen);
+    };
+
+    const closeMobileNav = () => {
+        setIsMobileNavOpen(false);
+    };
+
+    const mobileLinksStyle = {
+        display: isMobileNavOpen ? 'flex' : 'none'
+    };
+
     return (
         <Container>
-            <NavWrapper>
+            <NavDesktopWrapper>
                 <LinksWrapper>
                     <StyledLink href="/" ><Logo src="/C-line-nobg.webp" /></StyledLink>
                     <StyledLink href="/" >Accueil</StyledLink>
@@ -76,7 +137,20 @@ const Navbar = () => {
                     <CTA href="/contact" >Contact</CTA>
                     <StyledLink href="/cart" > <StyledIcon icon={faCartShopping} /> </StyledLink>
                 </LinksWrapper>
-            </NavWrapper>
+            </NavDesktopWrapper>
+            <NavMobileWrapper>
+                <Burger onClick={toggleNav} ><BurgerIcon icon={faBars} /></Burger>
+                <LinksWrapper>
+                    <CTA href="/contact" >Contact</CTA>
+                </LinksWrapper>
+                <MobileLinksWrapper style={mobileLinksStyle} onClick={closeMobileNav} >
+                    <StyledLink href="/" >Accueil</StyledLink>
+                    <StyledLink href="/sewing" >Couture</StyledLink>
+                    <StyledLink href="/flocking" >Flocage</StyledLink>
+                    <StyledLink href="/products" >Produits</StyledLink>
+                    <StyledLink href="/cart" >Panier</StyledLink>
+                </MobileLinksWrapper>
+            </NavMobileWrapper>
         </Container>
     )
 }

@@ -28,6 +28,9 @@ const ModalContent = styled.div`
     background-color: ${colors.secondary};
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     display: flex;
+    @media (max-width : 768px) {
+        width: 90%;
+    }
 `
 
 const ModalCloseButton = styled.button`

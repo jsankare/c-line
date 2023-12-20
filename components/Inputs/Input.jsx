@@ -18,11 +18,11 @@ const StyledInput = styled.input`
 
 const StyledLabel = styled.label``
 
-const Input = ( {input, label} ) => {
+const Input = ( {input, label, placeholder} ) => {
     return (
         <Container>
             <StyledLabel for={input} >{label}</StyledLabel>
-            <StyledInput type="text" name={input} />
+            <StyledInput type="text" name={input} placeholder={placeholder} />
         </Container>
     )
 }

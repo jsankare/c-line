@@ -51,6 +51,9 @@ const TestimonialsContainer = styled.div`
             color: white;
         }
     }
+    @media (max-width : 768px) {
+        border-radius: 0px;
+    }
 `;
 
 const ProgressBar = styled.div`

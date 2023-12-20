@@ -5,7 +5,7 @@ import Link from "next/link";
 
 const Container = styled.section`
     background-color: ${colors.primary};
-    height: 15vh;
+    min-height: 15vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -18,6 +18,12 @@ const ContentWrapper = styled.div`
     display: flex;
     width: 90%;
     justify-content: space-between;
+    @media (max-width : 768px) {
+        flex-direction: column-reverse;
+        align-items: center;
+        gap: 40px;
+        padding: 20px 0px;
+    }
 `
 
 const LinksWrapper = styled.div`
@@ -25,6 +31,13 @@ const LinksWrapper = styled.div`
     width: 100%;
     gap: 20px;
     justify-content: center;
+    @media (max-width : 768px) {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
 `
 
 const StyledLink = styled(Link)`
@@ -42,6 +55,10 @@ const SocialsWrapper = styled.div`
     justify-content: right;
     gap: 10px;
     width: 100%;
+    @media (max-width : 768px) {
+        justify-content: center;
+        gap: 10%;
+    }
 `
 
 const Logo = styled.img`
@@ -53,11 +70,17 @@ const Separator = styled.div`
     background-color: black;
     width: 95%;
     height: 1px;
+    @media (max-width : 768px) {
+        display: none;
+    }
 `
 
 const Paragraph = styled.p`
     width: 100%;
     text-align: left;
+    @media (max-width : 768px) {
+        text-align: center;   
+    }
 `
 
 const Footer = () => {

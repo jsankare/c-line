@@ -220,6 +220,9 @@ const ProductCard = ({ title, text, picture, price, closeups }) => {
     const decrementItem = () => {
         if (numberOfItems > 0) {
             setNumberOfItems(numberOfItems - 1)
+        } 
+        if (numberOfItems == 1) {
+            setAddedToCart(false)
         }
     }
 
@@ -237,7 +240,9 @@ const ProductCard = ({ title, text, picture, price, closeups }) => {
 
     return (
         <Container>
-            <ModalDisplay onClick={() => toggleModal({ title, text, picture, price, closeups })} > <StyledFontAwesomeIcon icon={faMagnifyingGlass} /> </ModalDisplay>
+            {isPriceAvailable && (
+                <ModalDisplay onClick={() => toggleModal({ title, text, picture, price, closeups })} > <StyledFontAwesomeIcon icon={faMagnifyingGlass} /> </ModalDisplay>
+            )}
             <Front>
                 <Picture src={picture} alt={title} />
             </Front>

@@ -19,10 +19,10 @@ const StyledInput = styled.textarea`
 
 const StyledLabel = styled.label``;
 
-const TextArea = ({ input, label }) => {
+const TextArea = ({ input, label, placeholder }) => {
     return (
         <Container>
-            <StyledLabel htmlFor={input}>{label}</StyledLabel>
+            <StyledLabel htmlFor={input} placeholder={placeholder} >{label}</StyledLabel>
             <StyledInput name={input} />
         </Container>
     );

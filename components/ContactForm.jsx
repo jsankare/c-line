@@ -33,11 +33,11 @@ const ContactForm = () => {
         <Container>
             <MainTitle title="Pour nous joindre" />
             <StyledForm>
-                <Input input="firstName" label="Prénom" />
-                <Input input="lastName" label="Nom" />
-                <Input input="email" label="Email" />
+                <Input input="firstName" label="Prénom" placeholder="Barnabé" />
+                <Input input="lastName" label="Nom" placeholder="Montgommery" />
+                <Input input="email" label="Email" placeholder="monadresse@mail.com" />
                 <SelectInput input="reason" label="Raison de votre message" options={options} />
-                <TextArea input="message" label="Message" />
+                <TextArea input="message" label="Message" placeholder="Entrez votre message ici" />
                 <ValidateInput text="Envoyer" />
             </StyledForm>
         </Container>

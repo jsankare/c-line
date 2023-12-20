@@ -122,6 +122,9 @@ const CategoryWrapper = styled.div`
     flex-wrap: wrap;
     justify-content: center;
     gap: 50px;
+    @media (max-width : 768px) {
+        gap: 100px;
+    }
 `
 
 const Products = () => {

@@ -15,6 +15,9 @@ const PicturesWrapper = styled.section`
     display: flex;
     justify-content: center;
     gap: 100px;
+    @media (max-width : 768px) {
+        flex-direction: column;
+    }
 `
 
 const Showcase = ( {products} ) => {

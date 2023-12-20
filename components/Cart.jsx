@@ -3,16 +3,30 @@ import styled from "styled-components";
 import colors from "@/assets/colors";
 import MainTitle from "./Layout/Title";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faMinus, faPlus, faTrash } from "@fortawesome/free-solid-svg-icons";
+import Input from "./Inputs/Input";
+import ValidateInput from "./Inputs/Validate";
+
+const StyledAside = styled.aside`
+    align-self: stretch;
+    background-color: ${colors.fourth};
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10%;
+    padding: 20px;
+    flex: 1;
+`;
 
 const Container = styled.section`
     background-color: ${colors.secondary};
     border-radius: 10px;
     min-height: 80vh;
     display: flex;
-    align-items: center;
+    align-items: stretch;
     gap: 50px;
-`
+`;
+
 
 const CartWrapper = styled.div`
     display: flex;
@@ -21,19 +35,7 @@ const CartWrapper = styled.div`
     align-items: center;
     gap: 100px;
     flex: 4;
-`
-
-const StyledAside = styled.aside`
-    height: 100vh;
-    width: 20vh;
-    background-color: ${colors.fourth};
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 10%;
-    padding: 20px;
-    flex: 1;
+    padding: 20px 0px;
 `
 
 const Item = styled.div`
@@ -64,6 +66,7 @@ const TotalPrice = styled.p`
     font-weight: bold;
     text-align: right;
     margin-top: 20px;
+    font-size: 28px;
 `
 
 const ItemDetailFlexWrapper = styled.div`
@@ -90,6 +93,7 @@ const EmptyCartAlert = styled.p`
 const CollumnHeader = styled.p`
     font-weight: bold;
     font-size: 20px;
+    justify-self: start;
 `
 
 const ModifyCartItemButton = styled.button`
@@ -128,12 +132,26 @@ const ProductImage = styled.img`
     width: 100%;
     max-width: 250px;
     max-height: 200px;
+    border-radius: 5px;
+    @media (max-width : 768px) {
+        display: none;
+    }
 `
 
 const Separator = styled.div`
     width: 80%;
     height: 1px;
     background-color: black;
+`
+
+const StyledForm = styled.form`
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: ${colors.secondary};
+    padding: 20px;
+    border-radius: 5px;
+    min-width: 80%;
 `
 
 const Cart = () => {
@@ -177,15 +195,6 @@ const Cart = () => {
         <Container>
             <CartWrapper>
             <MainTitle title="Votre panier" />
-                {Object.keys(cart).length > 0 && (
-                    <ItemDetails>
-                        <CollumnHeader>Produit</CollumnHeader>
-                        <CollumnHeader>Prix</CollumnHeader>
-                        <CollumnHeader>Quantité</CollumnHeader>
-                        <CollumnHeader>Total</CollumnHeader>
-                    </ItemDetails>
-                )}
-
                 {Object.keys(cart).length > 0 ? (
                     Object.keys(cart).map((title, index) => {
                         const { price, quantity, picture } = cart[title];
@@ -196,6 +205,7 @@ const Cart = () => {
                             <Item key={index}>
                                 <ItemDetails>
                                     <ItemDetailCollumnWrapper>
+                                        <CollumnHeader>Produit</CollumnHeader>
                                         <ProductImage
                                             src={picture}
                                             alt={title}
@@ -204,13 +214,32 @@ const Cart = () => {
                                         />
                                         <ItemValue>{title}</ItemValue>{" "}
                                     </ItemDetailCollumnWrapper>
-                                    <ItemValue>{price} €</ItemValue>{" "}
-                                    <ItemDetailFlexWrapper>
-                                        <ModifyCartItemButton onClick={() => removeItem(title)}> <FontAwesomeIcon icon={faMinus} /> </ModifyCartItemButton>
-                                        <ItemValue>{quantity}</ItemValue>{" "}
-                                        <ModifyCartItemButton onClick={() => addItem(title)}> <FontAwesomeIcon icon={faPlus} /> </ModifyCartItemButton>
-                                    </ItemDetailFlexWrapper>
-                                    <ItemValue>{price * quantity} €</ItemValue>
+                                    <ItemDetailCollumnWrapper>
+                                        <CollumnHeader>Prix</CollumnHeader>
+                                        <ItemValue>{price} €</ItemValue>{" "}
+                                    </ItemDetailCollumnWrapper>
+                                    <ItemDetailCollumnWrapper>
+                                        <CollumnHeader>Quantité</CollumnHeader>
+                                        <ItemDetailFlexWrapper>
+                                            {quantity === 1 ? (
+                                                <ModifyCartItemButton onClick={() => removeItem(title)}>
+                                                    <FontAwesomeIcon icon={faTrash} />
+                                                </ModifyCartItemButton>
+                                            ) : (
+                                                <ModifyCartItemButton onClick={() => removeItem(title)}>
+                                                    <FontAwesomeIcon icon={faMinus} />
+                                                </ModifyCartItemButton>
+                                            )}
+                                            <ItemValue>{quantity}</ItemValue>
+                                            <ModifyCartItemButton onClick={() => addItem(title)}>
+                                                <FontAwesomeIcon icon={faPlus} />
+                                            </ModifyCartItemButton>
+                                        </ItemDetailFlexWrapper>
+                                    </ItemDetailCollumnWrapper>
+                                    <ItemDetailCollumnWrapper>
+                                        <CollumnHeader>Total</CollumnHeader>
+                                        <ItemValue>{price * quantity} €</ItemValue>
+                                    </ItemDetailCollumnWrapper>
                                 </ItemDetails>
                                 <Separator />
                             </Item>
@@ -224,7 +253,13 @@ const Cart = () => {
             <StyledAside>
                 <TotalPrice>Total: {totalPrice} €</TotalPrice>
                 <CartButton onClick={emptyCart} >Vider tout le panier</CartButton> 
-                <CartButton onClick={emptyCart} >Envoyer ma commande</CartButton> 
+                <StyledForm>
+                    <Input input="email" label="Email" />
+                    <Input input="firstName" label="Prénom" />
+                    <Input input="lastName" label="Nom" />
+                    <Input input="phone" label="Téléphone" />
+                    <ValidateInput input="order" text="Envoyer ma commande" />
+                </StyledForm>
             </StyledAside>
                 )}
         </Container>
