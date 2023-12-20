@@ -6,21 +6,34 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
 
 const Container = styled.section`
-    padding: 20px;
     background-color: ${colors.secondary};
     border-radius: 10px;
     min-height: 80vh;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: center;
     gap: 50px;
 `
 
 const CartWrapper = styled.div`
     display: flex;
     flex-direction: column;
-    gap: 50px;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+    flex: 4;
+`
+
+const StyledAside = styled.aside`
+    height: 100vh;
+    width: 20vh;
+    background-color: ${colors.fourth};
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10%;
+    padding: 20px;
+    flex: 1;
 `
 
 const Item = styled.div`
@@ -32,12 +45,11 @@ const Item = styled.div`
 `
 
 const ItemDetails = styled.div`
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     align-items: center;
     text-align: center;
     justify-content: center;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 100px;
     font-size: 20px;
     font-weight: bold;
@@ -94,7 +106,7 @@ const ModifyCartItemButton = styled.button`
     }
 `
 
-const EmptyCartItemButton = styled.button`
+const CartButton = styled.button`
     background-color: ${colors.fourth};
     border: none;
     width: fit-content;
@@ -163,8 +175,8 @@ const Cart = () => {
 
     return (
         <Container>
-            <MainTitle title="Votre panier" />
             <CartWrapper>
+            <MainTitle title="Votre panier" />
                 {Object.keys(cart).length > 0 && (
                     <ItemDetails>
                         <CollumnHeader>Produit</CollumnHeader>
@@ -184,20 +196,20 @@ const Cart = () => {
                             <Item key={index}>
                                 <ItemDetails>
                                     <ItemDetailCollumnWrapper>
-                                    <ProductImage
-                                        src={picture}
-                                        alt={title}
-                                        width="50"
-                                        height="50"
-                                    />
+                                        <ProductImage
+                                            src={picture}
+                                            alt={title}
+                                            width="50"
+                                            height="50"
+                                        />
                                         <ItemValue>{title}</ItemValue>{" "}
                                     </ItemDetailCollumnWrapper>
+                                    <ItemValue>{price} €</ItemValue>{" "}
                                     <ItemDetailFlexWrapper>
                                         <ModifyCartItemButton onClick={() => removeItem(title)}> <FontAwesomeIcon icon={faMinus} /> </ModifyCartItemButton>
                                         <ItemValue>{quantity}</ItemValue>{" "}
                                         <ModifyCartItemButton onClick={() => addItem(title)}> <FontAwesomeIcon icon={faPlus} /> </ModifyCartItemButton>
                                     </ItemDetailFlexWrapper>
-                                    <ItemValue>{price} €</ItemValue>{" "}
                                     <ItemValue>{price * quantity} €</ItemValue>
                                 </ItemDetails>
                                 <Separator />
@@ -209,12 +221,12 @@ const Cart = () => {
                 )}
             </CartWrapper>
             {Object.keys(cart).length > 0 && (
-                    <>
-                         <EmptyCartItemButton onClick={emptyCart} >Vider tout le panier</EmptyCartItemButton> 
-                        <TotalPrice>Total: {totalPrice} €</TotalPrice>
-                    </>
+            <StyledAside>
+                <TotalPrice>Total: {totalPrice} €</TotalPrice>
+                <CartButton onClick={emptyCart} >Vider tout le panier</CartButton> 
+                <CartButton onClick={emptyCart} >Envoyer ma commande</CartButton> 
+            </StyledAside>
                 )}
-
         </Container>
     );
 };
