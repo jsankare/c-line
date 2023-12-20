@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import colors from "@/assets/colors";
 import MainTitle from "./Layout/Title";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
 
 const Container = styled.section`
     padding: 20px;
@@ -18,11 +20,15 @@ const Container = styled.section`
 const CartWrapper = styled.div`
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 50px;
 `
 
 const Item = styled.div`
     margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
 `
 
 const ItemDetails = styled.div`
@@ -77,16 +83,14 @@ const CollumnHeader = styled.p`
 const ModifyCartItemButton = styled.button`
     background-color: ${colors.fourth};
     border: none;
-    width: fit-content;
-    height: 30px;
     border-radius: 5px;
     background-color: ${colors.secondary};
-    font-size: 18px;
+    font-size: 22px;
     &:hover {
         cursor: pointer;
     }
     &:active{
-        font-size: 16px;
+        font-size: 20px;
     }
 `
 
@@ -94,7 +98,6 @@ const EmptyCartItemButton = styled.button`
     background-color: ${colors.fourth};
     border: none;
     width: fit-content;
-    height: 30px;
     border-radius: 5px;
     background-color: ${colors.secondary};
     font-size: 18px;
@@ -113,6 +116,12 @@ const ProductImage = styled.img`
     width: 100%;
     max-width: 250px;
     max-height: 200px;
+`
+
+const Separator = styled.div`
+    width: 80%;
+    height: 1px;
+    background-color: black;
 `
 
 const Cart = () => {
@@ -173,24 +182,25 @@ const Cart = () => {
 
                         return (
                             <Item key={index}>
-                                    <ItemDetails>
-                                        <ItemDetailCollumnWrapper>
-                                        <ProductImage
-                                            src={picture}
-                                            alt={title}
-                                            width="50"
-                                            height="50"
-                                        />
-                                            <ItemValue>{title}</ItemValue>{" "}
-                                        </ItemDetailCollumnWrapper>
-                                        <ItemDetailFlexWrapper>
-                                            <ModifyCartItemButton onClick={() => removeItem(title)}>-</ModifyCartItemButton>
-                                            <ItemValue>{quantity}</ItemValue>{" "}
-                                            <ModifyCartItemButton onClick={() => addItem(title)}>+</ModifyCartItemButton>
-                                        </ItemDetailFlexWrapper>
-                                        <ItemValue>{price} €</ItemValue>{" "}
-                                        <ItemValue>{price * quantity} €</ItemValue>
-                                    </ItemDetails>
+                                <ItemDetails>
+                                    <ItemDetailCollumnWrapper>
+                                    <ProductImage
+                                        src={picture}
+                                        alt={title}
+                                        width="50"
+                                        height="50"
+                                    />
+                                        <ItemValue>{title}</ItemValue>{" "}
+                                    </ItemDetailCollumnWrapper>
+                                    <ItemDetailFlexWrapper>
+                                        <ModifyCartItemButton onClick={() => removeItem(title)}> <FontAwesomeIcon icon={faMinus} /> </ModifyCartItemButton>
+                                        <ItemValue>{quantity}</ItemValue>{" "}
+                                        <ModifyCartItemButton onClick={() => addItem(title)}> <FontAwesomeIcon icon={faPlus} /> </ModifyCartItemButton>
+                                    </ItemDetailFlexWrapper>
+                                    <ItemValue>{price} €</ItemValue>{" "}
+                                    <ItemValue>{price * quantity} €</ItemValue>
+                                </ItemDetails>
+                                <Separator />
                             </Item>
                         );
                     })

@@ -11,27 +11,37 @@ const Container = styled.section`
     align-items: center;
     justify-content: center;
     gap: 25px;
+    width: 100%;
 `
 
 const ContentWrapper = styled.div`
     display: flex;
-    justify-content: space-between;
     width: 90%;
+    justify-content: space-between;
 `
 
-const TextWrapper = styled.div`
+const LinksWrapper = styled.div`
     display: flex;
-    gap: 10px;
+    width: 100%;
+    gap: 20px;
+    justify-content: center;
 `
 
 const StyledLink = styled(Link)`
     text-decoration: none;
-    color: ${colors.fourth};
+    color: black;
+    transition: ease-in-out 0.2s;
+    font-size: 18px;
+    &:hover {
+        color: ${colors.fourth};
+    }
 `
 
 const SocialsWrapper = styled.div`
     display: flex;
+    justify-content: right;
     gap: 10px;
+    width: 100%;
 `
 
 const Logo = styled.img`
@@ -45,7 +55,10 @@ const Separator = styled.div`
     height: 1px;
 `
 
-const Paragraph = styled.p``
+const Paragraph = styled.p`
+    width: 100%;
+    text-align: left;
+`
 
 const Footer = () => {
     return (
@@ -53,13 +66,14 @@ const Footer = () => {
             <Separator />
             <ContentWrapper>
                 <Paragraph>Création <StyledLink href="/" >Jordan Sankare</StyledLink> © tous droits réservés</Paragraph>
-                <TextWrapper>
+                <LinksWrapper>
                     <StyledLink href="/" >Accueil</StyledLink>
                     <StyledLink href="/sewing" >Couture</StyledLink>
                     <StyledLink href="/flocking" >Flocage</StyledLink>
                     <StyledLink href="/products" >Tous les produits</StyledLink>
+                    <StyledLink href="/cart" >Panier</StyledLink>
                     <StyledLink href="/contact" >Contact</StyledLink>
-                </TextWrapper>
+                </LinksWrapper>
                 <SocialsWrapper>
                     <StyledLink href="/" > <Logo src="/facebook.svg" /> </StyledLink>
                     <StyledLink href="/" > <Logo src="/instagram.svg" /> </StyledLink>
