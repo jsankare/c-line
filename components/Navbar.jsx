@@ -21,6 +21,10 @@ const StyledLink = styled(Link)`
     text-decoration: none;
     color: ${colors.fourth};
     font-size: 22px;
+    transition: ease-in-out 0.2s;
+    &:hover {
+        text-decoration: underline;
+    }
 `
 
 
