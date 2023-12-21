@@ -1,6 +1,7 @@
 import { createGlobalStyle } from "styled-components"
 import Navbar from "@/components/Navbar"
 import Footer from "@/components/Footer"
+import '@fortawesome/fontawesome-svg-core/styles.css'
 
 const GlobalStyles = createGlobalStyle`
     html {

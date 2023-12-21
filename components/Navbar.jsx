@@ -92,18 +92,19 @@ const StyledIcon = styled(FontAwesomeIcon)`
     padding: 10px;
     border-radius: 50%;
     color: ${colors.primary};
+    transition: ease-in-out 0.2s;
+    &:hover {
+        background-color: black;
+    }
     @media (max-width : 425px) {
         display: none;
     }
 `
 
-const Burger = styled.div`
-    cursor: pointer;
-`
-
 const BurgerIcon = styled(FontAwesomeIcon)`
     color: ${colors.fourth};
     font-size: 28px;
+    cursor: pointer;
 `
 
 
@@ -139,7 +140,7 @@ const Navbar = () => {
                 </LinksWrapper>
             </NavDesktopWrapper>
             <NavMobileWrapper>
-                <Burger onClick={toggleNav} ><BurgerIcon icon={faBars} /></Burger>
+                <BurgerIcon onClick={toggleNav} icon={faBars} />
                 <LinksWrapper>
                     <CTA href="/contact" >Contact</CTA>
                 </LinksWrapper>

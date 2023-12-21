@@ -54,9 +54,6 @@ const StyledPicture = styled.img`
 
 const StyledIcon = styled(FontAwesomeIcon)`
     font-size: 26px;
-`
-
-const StyledButton = styled.button`
     position: absolute;
     bottom: 10%;
     background-color: ${colors.primary};
@@ -99,12 +96,12 @@ const Modal = ({ isOpen, onClose, product, closeups }) => {
                 <ModalCloseButton onClick={onClose}>
                     <StyledIcon icon={faX} />
                 </ModalCloseButton>
-                <StyledButton onClick={prevImage} style={{ left: '10%' }} > <StyledIcon icon={faChevronLeft} /> </StyledButton>
+                <StyledIcon onClick={prevImage} style={{ left: '10%' }} icon={faChevronLeft} />
                 {closeups[currentImageIndex] && (
                     <StyledPicture src={closeups[currentImageIndex]} alt={closeups[currentImageIndex]} />
                 )}
                 <Counter>{`${currentImageIndex + 1} / ${closeups.length}`}</Counter>
-                <StyledButton onClick={nextImage} style={{ right: '10%' }}> <StyledIcon icon={faChevronRight} /> </StyledButton>
+                <StyledIcon onClick={nextImage} style={{ right: '10%' }} icon={faChevronRight} />
             </ModalContent>
         </Container>
     )

@@ -158,7 +158,8 @@ const NumberOfItems = styled.p`
     color: ${colors.fourth};
 `
 
-const ModalDisplay = styled.p`
+
+const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
     position: absolute;
     z-index: 999;
     font-size: 20px;
@@ -166,16 +167,14 @@ const ModalDisplay = styled.p`
     right: 10px;
     color: black;
     transition: ease-in-out 0.5s;
+    width: 100%;
+    max-width: 25px;
     &:hover {
         cursor: pointer;
     }
     ${Container}:hover & {
         color: ${colors.primary};
     }
-`
-
-const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
-
 `
 
 const ProductCard = ({ title, text, picture, price, closeups }) => {
@@ -241,7 +240,7 @@ const ProductCard = ({ title, text, picture, price, closeups }) => {
     return (
         <Container>
             {isPriceAvailable && (
-                <ModalDisplay onClick={() => toggleModal({ title, text, picture, price, closeups })} > <StyledFontAwesomeIcon icon={faMagnifyingGlass} /> </ModalDisplay>
+            <StyledFontAwesomeIcon onClick={() => toggleModal({ title, text, picture, price, closeups })} icon={faMagnifyingGlass} />
             )}
             <Front>
                 <Picture src={picture} alt={title} />
