@@ -11,15 +11,15 @@ const Container = styled.div`
     height: 280px;
     border-radius: 15px;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-`;
+    margin-bottom: 50px;
+`
 
 const Front = styled.div`
     position: relative;
     width: 100%;
     height: 100%;
     border-radius: 15px;
-
-`;
+`
 
 const Flipside = styled.div`
     width: 100%;
@@ -40,14 +40,14 @@ const Flipside = styled.div`
     ${Container}:hover & {
         opacity: 1;
     }
-`;
+`
 
 const Picture = styled.img`
     width: 100%;
     height: 100%;
     object-fit: cover;
     border-radius: 15px;
-`;
+`
 
 const Filter = styled.div`
     width: 100%;
@@ -62,7 +62,7 @@ const Filter = styled.div`
     ${Container}:hover & {
         opacity: 0.8;
     }
-`;
+`
 
 const Title = styled.h3`
     opacity: 0;
@@ -71,11 +71,12 @@ const Title = styled.h3`
     transition: top 0.5s ease-in-out;
     font-size: 30px;
     position: absolute;
-    top: 15%;
+    top: 10%;
+    max-width: 95%;
     ${Container}:hover & {
         opacity: 1;
     }
-`;
+`
 
 const Text = styled.p`
     opacity: 0;
@@ -83,7 +84,6 @@ const Text = styled.p`
     transition: opacity 0.3s ease-in-out;
     transition: top 0.5s ease-in-out;
     font-size: 22px;
-    padding: 0px 15px;
     text-align: center;
     position: absolute;
     top: 80%;
@@ -91,11 +91,12 @@ const Text = styled.p`
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
+    max-width: 95%;
     ${Container}:hover & {
         opacity: 1;
-        top: 50%;
+        top: 55%;
     }
-`;
+`
 
 const Price = styled.p`
     opacity: 0;
@@ -111,7 +112,7 @@ const Price = styled.p`
         opacity: 1;
         top: 40%;
     }
-`;
+`
 
 const AddtoCart = styled.button`
     cursor: pointer;

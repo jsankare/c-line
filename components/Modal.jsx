@@ -21,10 +21,10 @@ const Container = styled.section`
 const ModalContent = styled.div`
     position: relative;
     background-color: white;
-    padding: 20px;
     border-radius: 10px;
-    width: 500px;
-    height: 500px;
+    width: auto;
+    max-width: 90%;
+    height: 700px;
     background-color: ${colors.secondary};
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     display: flex;
@@ -49,7 +49,7 @@ const StyledPicture = styled.img`
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 15px;
+    border-radius: 10px;
 `
 
 const StyledIcon = styled(FontAwesomeIcon)`
@@ -69,7 +69,7 @@ const StyledIcon = styled(FontAwesomeIcon)`
 const Counter = styled.p`
     position: absolute;
     left: 45%;
-    bottom: 10%;
+    bottom: 1%;
     background-color: ${colors.primary};
     padding: 5px 10px;
     border-radius: 5px;
