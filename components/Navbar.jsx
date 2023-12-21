@@ -24,6 +24,7 @@ const NavMobileWrapper = styled.div`
     display: none;
     justify-content: space-between;
     align-items: center;
+    position: relative;
     @media (max-width : 768px) {
         display: flex;
     }
@@ -59,7 +60,7 @@ const MobileLinksWrapper = styled.div`
     gap: 10px;
     display: none;
     position: absolute;
-    top: 10%;
+    top: 50px;
     left: 5px;
     background-color: white;
     border-radius: 5px;

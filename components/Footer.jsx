@@ -98,7 +98,7 @@ const Footer = () => {
                     <StyledLink href="/contact" >Contact</StyledLink>
                 </LinksWrapper>
                 <SocialsWrapper>
-                    <StyledLink href="/" > <Logo src="/facebook.svg" /> </StyledLink>
+                    <StyledLink href="https://www.facebook.com/search/top/?q=C%20Line" target="blank" > <Logo src="/facebook.svg" /> </StyledLink>
                     <StyledLink href="/" > <Logo src="/instagram.svg" /> </StyledLink>
                 </SocialsWrapper>
             </ContentWrapper>
