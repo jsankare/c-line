@@ -13,8 +13,7 @@ const StyledLink = styled(Link)`
     padding: 10px 15px;
     transition: ease-in-out 0.2s;
     &:hover {
-        background-color: ${colors.primary};
-        color: black;
+        background-color: black;
     }
 `
 

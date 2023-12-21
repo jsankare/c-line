@@ -35,8 +35,8 @@ const ModalContent = styled.div`
 
 const ModalCloseButton = styled.button`
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 30px;
+    right: 30px;
     border: none;
     background-color: ${colors.secondary};
     border-radius: 5px;

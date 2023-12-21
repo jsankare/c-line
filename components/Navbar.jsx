@@ -142,14 +142,14 @@ const Navbar = () => {
             <NavMobileWrapper>
                 <BurgerIcon onClick={toggleNav} icon={faBars} />
                 <LinksWrapper>
-                    <CTA href="/contact" >Contact</CTA>
+                    <StyledLink href="/cart" > <StyledIcon icon={faCartShopping} /> </StyledLink>
                 </LinksWrapper>
                 <MobileLinksWrapper style={mobileLinksStyle} onClick={closeMobileNav} >
                     <StyledLink href="/" >Accueil</StyledLink>
                     <StyledLink href="/sewing" >Couture</StyledLink>
                     <StyledLink href="/flocking" >Flocage</StyledLink>
                     <StyledLink href="/products" >Produits</StyledLink>
-                    <StyledLink href="/cart" >Panier</StyledLink>
+                    <StyledLink href="/contact" >Contact</StyledLink>
                 </MobileLinksWrapper>
             </NavMobileWrapper>
         </Container>
