@@ -143,7 +143,8 @@ const Navbar = () => {
             <NavMobileWrapper>
                 <BurgerIcon onClick={toggleNav} icon={faBars} />
                 <LinksWrapper>
-                    <StyledLink href="/cart" > <StyledIcon icon={faCartShopping} /> </StyledLink>
+                    {/* <StyledLink href="/cart" > <StyledIcon icon={faCartShopping} /> </StyledLink> */}
+                    <CTA href="/cart" >Panier</CTA>
                 </LinksWrapper>
                 <MobileLinksWrapper style={mobileLinksStyle} onClick={closeMobileNav} >
                     <StyledLink href="/" >Accueil</StyledLink>
