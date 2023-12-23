@@ -14,6 +14,9 @@ const Container = styled.section`
     gap: 50px;
     width: 100%;
     padding: 50px 0;
+    @media (max-width : 375px) {
+        text-align: center;
+    }
 `
 
 const StyledForm = styled.form`
@@ -23,6 +26,10 @@ const StyledForm = styled.form`
     gap: 25px;
     max-width: 20%;
     width: 100%;
+    min-width: 350px;
+    @media (max-width : 375px) {
+        min-width: fit-content;
+    }
 `
 
 const ContactForm = () => {

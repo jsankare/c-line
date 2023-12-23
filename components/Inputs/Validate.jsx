@@ -15,6 +15,7 @@ const Validate = styled.button`
     border-radius: 5px;
     border: none;
     transition: ease-in-out 0.2s;
+    padding: 10px 0px;
     &:hover {
         background-color: ${colors.primary};
     }
