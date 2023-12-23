@@ -14,7 +14,7 @@ const Logo = styled.img``
 const Hero = () => {
     return (
         <Container>
-            <Logo src="/C-line-nobg.png" />
+            <Logo src="/C-line_Créations-removebg-preview.png" />
         </Container>
     )
 }

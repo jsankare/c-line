@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMinus, faPlus, faTrash } from "@fortawesome/free-solid-svg-icons";
 import Input from "./Inputs/Input";
 import ValidateInput from "./Inputs/Validate";
+import TextArea from "./Inputs/TextArea";
 
 const StyledAside = styled.aside`
     align-self: stretch;
@@ -274,6 +275,7 @@ const Cart = () => {
                     <Input input="firstName" label="Prénom" />
                     <Input input="lastName" label="Nom" />
                     <Input input="phone" label="Téléphone" />
+                    <TextArea input="customs" label="Souhaits de personnalisation" />
                     <ValidateInput input="order" text="Envoyer ma commande" />
                 </StyledForm>
             </StyledAside>
