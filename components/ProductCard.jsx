@@ -178,7 +178,7 @@ const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
     }
 `
 
-const ProductCard = ({ title, text, picture, price, closeups }) => {
+const ProductCard = ({ title, text, picture, price, description, closeups }) => {
 
     const [addedToCart, setAddedToCart] = useState(false);
     const [numberOfItems, setNumberOfItems] = useState(0);
@@ -241,7 +241,7 @@ const ProductCard = ({ title, text, picture, price, closeups }) => {
     return (
         <Container>
             {isPriceAvailable && (
-            <StyledFontAwesomeIcon onClick={() => toggleModal({ title, text, picture, price, closeups })} icon={faMagnifyingGlass} />
+            <StyledFontAwesomeIcon onClick={() => toggleModal({ title, text, picture, price, description, closeups })} icon={faMagnifyingGlass} />
             )}
             <Front>
                 <Picture src={picture} alt={title} />
@@ -270,6 +270,7 @@ const ProductCard = ({ title, text, picture, price, closeups }) => {
                 onClose={() => setShowModal(false)}
                 product={selectedProduct}
                 closeups={closeups}
+                description={text}
             />
         </Container>
     );

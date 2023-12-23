@@ -33,11 +33,12 @@ const ModalContent = styled.div`
     }
 `
 
-const ModalCloseButton = styled.button`
+const ModalCloseButton = styled.div`
     position: absolute;
-    top: 30px;
-    right: 30px;
+    top: 26px;
+    right: 32px;
     border: none;
+    z-index: 10;
     background-color: ${colors.secondary};
     border-radius: 5px;
     &:hover {
@@ -53,14 +54,13 @@ const StyledPicture = styled.img`
 `
 
 const StyledIcon = styled(FontAwesomeIcon)`
-    font-size: 26px;
     position: absolute;
     bottom: 10%;
     background-color: ${colors.primary};
     padding: 5px 10px;
     border: none;
     border-radius: 5px;
-    font-size: 16px;
+    font-size: 30px;
     &:hover{
         cursor: pointer;
     }
@@ -77,7 +77,17 @@ const Counter = styled.p`
     font-size: 18px;
 `
 
-const Modal = ({ isOpen, onClose, product, closeups }) => {
+const Description = styled.p`
+    position: absolute;
+    font-size: 22px;
+    background-color: white;
+    width: 100%;
+    padding: 5px;
+    border-radius: 5px 5px 0 0;
+    padding: 0px 40px;
+`
+
+const Modal = ({ isOpen, onClose, product, description, closeups }) => {
     if (!isOpen || !product || !closeups || !Array.isArray(closeups)) return null;
 
     const [currentImageIndex, setCurrentImageIndex] = useState(0)
@@ -94,7 +104,7 @@ const Modal = ({ isOpen, onClose, product, closeups }) => {
         <Container onClick={onClose}>
             <ModalContent onClick={(e) => e.stopPropagation()}>
                 <ModalCloseButton onClick={onClose}>
-                    <StyledIcon icon={faX} />
+                    <StyledIcon icon={faX} style={{ fontSize: '16px' }} />
                 </ModalCloseButton>
                 <StyledIcon onClick={prevImage} style={{ left: '10%' }} icon={faChevronLeft} />
                 {closeups[currentImageIndex] && (
@@ -102,6 +112,7 @@ const Modal = ({ isOpen, onClose, product, closeups }) => {
                 )}
                 <Counter>{`${currentImageIndex + 1} / ${closeups.length}`}</Counter>
                 <StyledIcon onClick={nextImage} style={{ right: '10%' }} icon={faChevronRight} />
+                <Description>{description}</Description>
             </ModalContent>
         </Container>
     )

@@ -11,7 +11,7 @@ const data = [
         products: [
             {
                 title: "Tot bag réversible",
-                text: "Ajouter non réversible option ajout de caracteres pour ellipse",
+                text: "Ajouter non réversible option ajout de caracteres pour ellipjout de caracteres jout de caracteres jout de caracteres jout de caracteres se",
                 picture: "/bag_5.jpg",
                 closeups : [
                     "/bag.jpg",
