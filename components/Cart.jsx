@@ -17,6 +17,15 @@ const StyledAside = styled.aside`
     gap: 10%;
     padding: 20px;
     flex: 1;
+    @media (max-width : 1340px) {
+        gap: 5%;
+    }
+    @media (max-width : 1080px) {
+        gap: 2%;
+    }
+    @media (max-width : 1024px) {
+        gap: 15px;
+    }
     @media (max-width : 768px) {
         gap: 20px;
     }
@@ -137,6 +146,7 @@ const CartButton = styled.button`
     background-color: ${colors.primary};
     padding: 5px 10px;
     border-radius: 5px;
+    margin-bottom: 10px;
     &:hover {
         cursor: pointer;
     }
