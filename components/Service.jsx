@@ -69,7 +69,7 @@ const StyledLink = styled(Link)`
     font-size: 16px;
     z-index: 10;
     bottom: 10px;
-    right: ${(props) => (props.reversed ? "70%" : "3%")};
+    right: ${(props) => (props.reversed ? "65%" : "3%")};
     text-decoration: none;
     padding: 10px;
     border-radius: 10px;
