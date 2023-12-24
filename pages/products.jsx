@@ -252,7 +252,7 @@ const Products = () => {
     return (
         <Container>
             <Heading title="Tous nos produits" subtitle="Du choix pour tous" picture="/productsheading.png" />
-            <SubTitle title="Ajoutez des produits dans votre panier et envoyez la commande pour qu'elle soit validée par notre C-line" />
+            <SubTitle title="Ajoutez des produits dans votre panier et envoyez la commande pour qu'elle soit validée par C-line" />
             <ProductsWrapper>
                 {data.map((categoryData, index) => (
                     <ProductsWrapper key={index}>
