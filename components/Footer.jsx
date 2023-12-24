@@ -94,7 +94,7 @@ const Footer = () => {
                     <StyledLink href="/" >Accueil</StyledLink>
                     <StyledLink href="/sewing" >Couture</StyledLink>
                     <StyledLink href="/flocking" >Flocage</StyledLink>
-                    <StyledLink href="/products" >Tous les produits</StyledLink>
+                    <StyledLink href="/products" >Produits</StyledLink>
                     <StyledLink href="/cart" >Panier</StyledLink>
                     <StyledLink href="/contact" >Contact</StyledLink>
                 </LinksWrapper>
