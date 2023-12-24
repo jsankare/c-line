@@ -10,7 +10,7 @@ const products = [
     {
         name: "Product 1",
         catchphrase: "catchphrase about product 1",
-        picture: "/flocage.jpg",
+        picture: "/sewing_smoke.png",
         id: "P1",
     },
     {

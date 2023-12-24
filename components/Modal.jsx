@@ -40,7 +40,7 @@ const ModalCloseButton = styled.div`
     border: none;
     z-index: 10;
     background-color: ${colors.secondary};
-    border-radius: 5px;
+    border-radius: 5px 5px 0px 0px;
     &:hover {
         cursor: pointer;
     }
@@ -61,6 +61,7 @@ const StyledIcon = styled(FontAwesomeIcon)`
     border: none;
     border-radius: 5px;
     font-size: 30px;
+    border-radius: 5px 5px 0px 5px;
     &:hover{
         cursor: pointer;
     }
@@ -72,7 +73,6 @@ const Counter = styled.p`
     bottom: 1%;
     background-color: ${colors.primary};
     padding: 5px 10px;
-    border-radius: 5px;
     color: black;
     font-size: 18px;
 `

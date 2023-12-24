@@ -2,11 +2,16 @@ import { createGlobalStyle } from "styled-components"
 import Navbar from "@/components/Navbar"
 import Footer from "@/components/Footer"
 import '@fortawesome/fontawesome-svg-core/styles.css'
+import "@fontsource-variable/kalnia";
 
 const GlobalStyles = createGlobalStyle`
     html {
         box-sizing: border-box;
         font-size: 16px;
+        -ms-user-select: none;
+        -webkit-user-select: none;
+        user-select: none;
+        font-family: "Kalnia Variable"
     }
 
     *, *:before, *:after {

@@ -2,6 +2,8 @@ import react from "react";
 import styled from "styled-components";
 import colors from "@/assets/colors";
 import Link from "next/link";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFacebook, faInstagram } from "@fortawesome/free-brands-svg-icons";
 
 const Container = styled.section`
     background-color: ${colors.primary};
@@ -61,9 +63,8 @@ const SocialsWrapper = styled.div`
     }
 `
 
-const Logo = styled.img`
-    width: 100%;
-    max-width: 20px;
+const StyledIcon = styled(FontAwesomeIcon)`
+    font-size: 28px;
 `
 
 const Separator = styled.div`
@@ -98,8 +99,8 @@ const Footer = () => {
                     <StyledLink href="/contact" >Contact</StyledLink>
                 </LinksWrapper>
                 <SocialsWrapper>
-                    <StyledLink href="https://www.facebook.com/search/top/?q=C%20Line" target="blank" > <Logo src="/facebook.svg" /> </StyledLink>
-                    <StyledLink href="/" > <Logo src="/instagram.svg" /> </StyledLink>
+                    <StyledLink href="https://www.facebook.com/search/top/?q=C%20Line" target="blank" > <StyledIcon icon={faFacebook}  /> </StyledLink>
+                    <StyledLink href="https://www.facebook.com/search/top/?q=C%20Line" target="blank" > <StyledIcon icon={faInstagram}  /> </StyledLink>
                 </SocialsWrapper>
             </ContentWrapper>
         </Container>
