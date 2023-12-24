@@ -89,7 +89,7 @@ const Footer = () => {
         <Container>
             <Separator />
             <ContentWrapper>
-                <Paragraph>Création <StyledLink href="/" >Jordan Sankare</StyledLink> © tous droits réservés</Paragraph>
+                <Paragraph>Création <StyledLink href="https://www.jsankare.dev/" target="blank" >Jordan Sankare</StyledLink> © tous droits réservés</Paragraph>
                 <LinksWrapper>
                     <StyledLink href="/" >Accueil</StyledLink>
                     <StyledLink href="/sewing" >Couture</StyledLink>
