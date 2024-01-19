@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Modal from "./Modal";
 import colors from "@/assets/colors";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import { faMagnifyingGlass, faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
 
 const Container = styled.div`
     position: relative;
@@ -151,9 +151,21 @@ const CartPreview = styled.div`
     bottom: 10%;
 `
 
-const AddOne = styled.button``
+const AddOne = styled.button`
+    border-radius: 5px;
+    border: none;
+    &:active {
+        transform: scale(0.95);
+    }
+`
 
-const RemoveOne = styled.button ``
+const RemoveOne = styled.button `
+    border-radius: 5px;
+    border: none;
+    &:active {
+        transform: scale(0.95);
+    }
+`
 
 const NumberOfItems = styled.p`
     color: ${colors.fourth};
@@ -256,9 +268,10 @@ const ProductCard = ({ title, text, picture, price, description, closeups }) => 
                 )}
                 {isPriceAvailable && addedToCart && (
                     <CartPreview>
-                        <RemoveOne onClick={decrementItem}>-</RemoveOne>
+                        <RemoveOne onClick={decrementItem}><FontAwesomeIcon icon={faMinus} /></RemoveOne>
                         <NumberOfItems>{numberOfItems}</NumberOfItems>
-                        <AddOne onClick={incrementItem}>+</AddOne>
+                        <AddOne onClick={incrementItem}><FontAwesomeIcon icon={faPlus} /></AddOne>
+                        
                     </CartPreview>
                 )}
                 {isPriceAvailable && addedToCart && (
