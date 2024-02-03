@@ -39,7 +39,7 @@ const Container = styled.section`
     display: flex;
     align-items: stretch;
     gap: 50px;
-    @media (max-width : 870px) {
+    @media (max-width : 1000px) {
         flex-direction: column;
     }
 `
@@ -50,11 +50,13 @@ const CartWrapper = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 100px;
     flex: 4;
     padding: 20px 0px;
     @media (max-width : 768px) {
         padding: 20px;
+    }
+    @media (max-width : 320px) {
+        gap: 50px;
     }
 `
 
@@ -73,7 +75,6 @@ const ItemDetails = styled.div`
     align-items: center;
     text-align: center;
     justify-content: center;
-    gap: 100px;
     font-size: 20px;
     font-weight: bold;
     @media (max-width : 570px) {
@@ -81,6 +82,10 @@ const ItemDetails = styled.div`
     }
     @media (max-width : 570px) {
         grid-template-columns: 1fr 1fr;
+    }
+    @media (max-width : 320px) {
+        display: flex;
+        flex-direction: column;
     }
 `
 

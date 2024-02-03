@@ -42,6 +42,9 @@ const Title = styled.h1`
                 0 0 150px ${colors.primary};
             color: black;
     `};
+    @media (max-width : 320px) {
+        text-align: center;
+    }
 `
 
 const MainTitle = ({ title, size, weight, neon }) => {

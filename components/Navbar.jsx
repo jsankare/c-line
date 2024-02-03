@@ -52,6 +52,9 @@ const LinksWrapper = styled.div`
     gap: 25px;
     align-items: center;
     justify-content: center;
+    @media (max-width : 820px) {
+        gap: 15px;
+    }
 `
 
 const MobileLinksWrapper = styled.div`

@@ -40,6 +40,10 @@ const LinksWrapper = styled.div`
         align-items: center;
         text-align: center;
     }
+    @media (max-width : 320px) {
+        display: flex;
+        flex-direction: column;
+    }
 `
 
 const StyledLink = styled(Link)`
